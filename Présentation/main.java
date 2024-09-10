@@ -20,7 +20,7 @@ public class main {
         );
 
         try {
-            LivreDAO.ajouterLivre(livre1);
+            DocumentDAO.ajouterLivre(livre1);
             System.out.println("test");
         } catch (SQLException e) {
             throw new RuntimeException(e);
