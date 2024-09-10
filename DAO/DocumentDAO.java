@@ -12,35 +12,35 @@ import Métier.*;
 public class DocumentDAO {
 
 
+    public void ajouterDocument(Document document) {
+        String sqlDocument = "INSERT INTO document (titre, auteur, date_de_publication, nombre_de_pages, etat) VALUES (?, ?, ?, ?, ?) RETURNING id";
+        String sqlLivre = "INSERT INTO livre (id, isbn) VALUES (?, ?)";
+        String sqlMagazine = "INSERT INTO magazine (id, numero) VALUES (?, ?)";
 
-
-    public void ajouterDocument(Document document) throws SQLException {
-        String sql = "INSERT INTO documents (titre, auteur, date_publication, nombre_pages, etat) VALUES (?, ?, ?, ?, ?) RETURNING id";
         try (Connection conn = dbConnection.connect();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmtDocument = conn.prepareStatement(sqlDocument);
+             PreparedStatement pstmtLivre = conn.prepareStatement(sqlLivre);
+             PreparedStatement pstmtMagazine = conn.prepareStatement(sqlMagazine)) {
 
-            // Ajouter les champs communs
-            stmt.setString(1, document.getTitre());
-            stmt.setString(2, document.getAuteur());
-            stmt.setDate(3, Date.valueOf(document.getDateDePublication()));
-            stmt.setInt(4, document.getNombreDePages());
-            stmt.setString(5, document.getEtat());
 
-            // Exécuter la requête et obtenir l'ID généré
-            ResultSet rs = stmt.executeQuery();
+            pstmtDocument.setString(1, document.getTitre());
+            pstmtDocument.setString(2, document.getAuteur());
+            pstmtDocument.setDate(3, Date.valueOf(document.getDateDePublication()));
+            pstmtDocument.setInt(4, document.getNombreDePages());
+            pstmtDocument.setString(5, document.getEtat());
+
+            ResultSet rs = pstmtDocument.executeQuery();
             if (rs.next()) {
-                long idDocument = rs.getLong(1);
-                document.setId(idDocument);
+                long id = rs.getLong("id");
+                document.setId(id);
 
-                // Vérifier le type du document et insérer dans la table correspondante
-                if (document instanceof Livre) {
-                    ajouterLivre((Livre) document, conn);
-                } else if (document instanceof Magazine) {
-                    ajouterMagazine((Magazine) document, conn);
-                }
             }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
+
 
 
 

@@ -1,10 +1,11 @@
 package Métier;
 import java.time.LocalDate;
+
 public class Livre extends Document implements Empruntable, Réservable {
     private String isbn;
 
-    public Livre(String id, String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String isbn, String etat) {
-        super(id, titre, auteur, dateDePublication, nombreDePages, etat);
+    public Livre(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String isbn, String etat) {
+        super(titre, auteur, dateDePublication, nombreDePages, etat);
         this.isbn = isbn;
     }
 
@@ -43,5 +44,15 @@ public class Livre extends Document implements Empruntable, Réservable {
     public void annulerRéservation() {
         setEtat("disponible");
         System.out.println("Réservation annulée.");
+    }
+
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 }

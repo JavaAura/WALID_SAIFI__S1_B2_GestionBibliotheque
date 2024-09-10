@@ -2,17 +2,17 @@ package Métier;
 
 import java.time.LocalDate;
 
-
 public abstract class Document {
-    private String id;
+    private long id;
     protected String titre;
     protected String auteur;
     protected LocalDate dateDePublication;
     protected int nombreDePages;
-    protected String etat; // "disponible", "emprunté", "réservé"
+    protected String etat;
 
-    public Document(String id, String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String etat) {
-        this.id = id;
+
+    public Document(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String etat) {
+
         this.titre = titre;
         this.auteur = auteur;
         this.dateDePublication = dateDePublication;
@@ -20,11 +20,10 @@ public abstract class Document {
         this.etat = etat;
     }
 
+
     public abstract void afficherDetails();
 
-    public String getId() {
-        return id;
-    }
+
 
     public String getTitre() {
         return titre;
@@ -38,8 +37,33 @@ public abstract class Document {
         return dateDePublication;
     }
 
+    public int getNombreDePages() {
+        return nombreDePages;
+    }
+
     public String getEtat() {
         return etat;
+    }
+
+    // Setters
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public void setAuteur(String auteur) {
+        this.auteur = auteur;
+    }
+
+    public void setDateDePublication(LocalDate dateDePublication) {
+        this.dateDePublication = dateDePublication;
+    }
+
+    public void setNombreDePages(int nombreDePages) {
+        this.nombreDePages = nombreDePages;
     }
 
     public void setEtat(String etat) {
