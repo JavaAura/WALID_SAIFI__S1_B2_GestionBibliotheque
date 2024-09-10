@@ -8,8 +8,19 @@ public class Professeur extends Utilisateur {
         this.specialite = specialite;
     }
 
+    // Getter pour l'attribut specialite
+    public String getSpecialite() {
+        return specialite;
+    }
+
+
+    public void setSpecialite(String specialite) {
+        this.specialite = specialite;
+    }
+
     @Override
     public void afficherDetails() {
-        System.out.println("Professeur : , Nom: " + nom + ", Spécialité: " + specialite);
+
+        System.out.println("Professeur : Nom: " + getNom() + ", Spécialité: " + specialite);
     }
 }
