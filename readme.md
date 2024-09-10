@@ -48,7 +48,4 @@ L'application est organisée en plusieurs couches : présentation, métier, pers
 - **Java 8**
 - **PostgreSQL**
 
-### Étapes pour configurer la base de données
-1. **Créer la base de données** :
-   ```sql
-   CREATE DATABASE gestion_bibliotheque;
+
