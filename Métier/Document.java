@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 
 public abstract class Document {
-    protected String id;
+    private String id;
     protected String titre;
     protected String auteur;
     protected LocalDate dateDePublication;
