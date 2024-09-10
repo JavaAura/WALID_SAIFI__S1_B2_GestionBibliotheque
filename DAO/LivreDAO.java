@@ -52,4 +52,14 @@ public class LivreDAO {
     }
 
 
+    public static void supprimerLivre(int id) throws SQLException {
+        String sql = "DELETE FROM Livre WHERE id = ?";
+        try (Connection conn = dbConnection.connect();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }
+    }
+
 }
