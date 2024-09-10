@@ -15,12 +15,12 @@ public class main {
                 "walid",
                 LocalDate.of(1954, 7, 29),
                 1178,
-                "1234567893214", // ISBN de 13 caractères
+                "1234568521214", // ISBN de 13 caractères
                 "disponible"
         );
 
         try {
-            DocumentDAO.ajouterLivre(livre1);
+            LivreDAO.ajouterLivre(livre1);
             System.out.println("test");
         } catch (SQLException e) {
             throw new RuntimeException(e);

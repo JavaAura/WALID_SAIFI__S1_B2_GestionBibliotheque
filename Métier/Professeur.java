@@ -8,7 +8,7 @@ public class Professeur extends Utilisateur {
         this.specialite = specialite;
     }
 
-    // Getter pour l'attribut specialite
+
     public String getSpecialite() {
         return specialite;
     }

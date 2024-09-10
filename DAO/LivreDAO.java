@@ -16,14 +16,14 @@ public class LivreDAO {
         try (Connection conn = dbConnection.connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            // Ajouter les champs du livre
+
             stmt.setString(1, livre.getTitre());
             stmt.setString(2, livre.getAuteur());
             stmt.setDate(3, Date.valueOf(livre.getDateDePublication()));
             stmt.setInt(4, livre.getNombreDePages());
             stmt.setString(5, livre.getEtat());
 
-            // Vérifier la longueur de l'ISBN
+
             String isbn = livre.getIsbn();
             if (isbn.length() > 13) {
                 throw new IllegalArgumentException("L'ISBN dépasse la longueur maximale autorisée.");
