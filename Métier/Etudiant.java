@@ -12,4 +12,5 @@ public class Etudiant extends Utilisateur {
     public void afficherDetails() {
         System.out.println("Étudiant - ID: " + id + ", Nom: " + nom + ", Niveau: " + niveau);
     }
+
 }
