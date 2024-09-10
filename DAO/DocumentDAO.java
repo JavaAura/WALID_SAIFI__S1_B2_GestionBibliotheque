@@ -39,6 +39,7 @@ public class DocumentDAO {
             }
         }
 
+
         public static void modifierLivre(int id, Livre livre) throws SQLException {
             String sql = "UPDATE Livre SET titre = ?, auteur = ?, date_de_publication = ?, nombre_de_pages = ?, etat = ?, isbn = ? WHERE id = ?";
             try (Connection conn = dbConnection.connect();
@@ -55,6 +56,8 @@ public class DocumentDAO {
                 stmt.executeUpdate();
             }
         }
+
+
 
 
         public static void supprimerLivre(int id) throws SQLException {
