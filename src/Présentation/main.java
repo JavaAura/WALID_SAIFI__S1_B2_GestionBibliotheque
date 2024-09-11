@@ -20,11 +20,16 @@ public class main {
         );
 */
         Professeur pr = new Professeur("walid","saifi","info");
-        Etudiant e = new Etudiant("salahlll","SAIFI","K852174196");
+        Etudiant e = new Etudiant("oumaima","SAIFI","K148");
+        Etudiant e1 = new Etudiant("walidl","SAIFI","K855");
+        Etudiant e2 = new Etudiant("manal","SAIFI","K246");
 
-        // LivreDAO.ajouterLivre(livre1);
-       // ProfesseurDAO.supprimerProfesseur(1);
-      EtudiantDAO.supprimerEtudiant("K852174196");
+
+        //LivreDAO.ajouterLivre(livre1);
+
+     // EtudiantDAO.afficherEtudiantDetails();
+        EtudiantDAO.ajouterEtudiant(e);
+        EtudiantDAO.afficherTousLesEtudiants();
         System.out.println("test");
     }
 

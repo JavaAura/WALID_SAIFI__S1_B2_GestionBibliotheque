@@ -3,8 +3,11 @@ package src.DAO;
 import src.Métier.Professeur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfesseurDAO {
 
@@ -76,6 +79,49 @@ public class ProfesseurDAO {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public static List<Professeur> obtenirTousLesProfesseurs() {
+        List<Professeur> professeurs = new ArrayList<>();
+        String sql = "SELECT * FROM Professeur";
+
+        try (Connection conn = dbConnection.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                String specialite = rs.getString("departement");
+
+                Professeur professeur = new Professeur(nom, prenom, specialite);
+                professeur.setId(id); // Assurez-vous que Professeur a une méthode setId()
+                professeurs.add(professeur);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return professeurs;
+    }
+
+    // Méthode pour afficher tous les professeurs
+    public static void afficherTousLesProfesseurs() {
+        List<Professeur> professeurs = obtenirTousLesProfesseurs();
+        if (professeurs.isEmpty()) {
+            System.out.println("Aucun professeur trouvé.");
+        } else {
+            for (Professeur professeur : professeurs) {
+                System.out.println("Détails du professeur:");
+                System.out.println("ID: " + professeur.getId());
+                System.out.println("Nom: " + professeur.getNom());
+                System.out.println("Prénom: " + professeur.getPrenom());
+                System.out.println("Département: " + professeur.getSpecialite());
+                System.out.println();
+            }
         }
     }
 }
