@@ -21,8 +21,7 @@ public class main {
 */
         Professeur pr = new Professeur("walid","saifi","info");
         Etudiant e = new Etudiant("oumaima","SAIFI","K148");
-        Etudiant e1 = new Etudiant("walidl","SAIFI","K855");
-        Etudiant e2 = new Etudiant("manal","SAIFI","K246");
+
         ProfesseurDAO.ajouterProfesseur(pr);
 
 
@@ -34,7 +33,7 @@ public class main {
         //ProfesseurDAO.afficherTousLesProfesseurs();
        // UtilisateurDAO.afficherToutUtilisateur();
         LivreDAO.afficherTousLesLivres();
-      
+
     }
 
 
