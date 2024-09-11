@@ -51,3 +51,16 @@ CREATE TABLE Reservation (
     date_reservation DATE NOT NULL,
     date_annulation DATE
 );
+
+
+-- Table JournalScientifique qui hérite de Document
+CREATE TABLE JournalScientifique (
+    domaine_recherche VARCHAR(255)
+) INHERITS (Document);
+
+-- Table ThèseUniversitaire qui hérite de Document
+CREATE TABLE TheseUniversitaire (
+    universite VARCHAR(255),
+    domaine VARCHAR(255)
+) INHERITS (Document);
+
