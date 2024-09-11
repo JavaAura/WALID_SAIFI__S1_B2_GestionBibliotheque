@@ -49,13 +49,14 @@ public class ProfesseurDAO {
 
 
     public static void mettreAJourProfesseur(Professeur professeur,int id) {
-        String sql = "UPDATE Professeur SET nom = ?, prenom = ?, specialite = ? WHERE id = ?";
+        String sql = "UPDATE Professeur SET nom = ?, prenom = ?, departement = ? WHERE id = ?";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, professeur.getNom());
             pstmt.setString(2, professeur.getPrenom());
             pstmt.setString(3, professeur.getSpecialite());
+            pstmt.setInt(4,id);
 
             pstmt.executeUpdate();
 

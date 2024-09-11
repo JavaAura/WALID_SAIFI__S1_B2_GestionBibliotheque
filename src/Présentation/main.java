@@ -19,11 +19,11 @@ public class main {
                 "disponible"
         );
 */
-        Professeur pr = new Professeur("ali","radi","phisique");
+        Professeur pr = new Professeur("walid","saifi","info");
 
 
         // LivreDAO.ajouterLivre(livre1);
-        ProfesseurDAO.ajouterProfesseur(pr);
+        ProfesseurDAO.supprimerProfesseur(1);
         System.out.println("test");
     }
 
