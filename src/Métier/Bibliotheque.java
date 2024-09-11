@@ -1,4 +1,4 @@
-package Métier;
+package src.Métier;
 
 import java.util.HashMap;
 import java.util.Map;

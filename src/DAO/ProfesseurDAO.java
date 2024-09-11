@@ -10,7 +10,7 @@ public class ProfesseurDAO {
 
 
     public static void ajouterProfesseur(Professeur professeur) {
-        String sql = "INSERT INTO Professeur (nom, prenom, specialite) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Professeur (nom, prenom, departement) VALUES (?, ?, ?)";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -48,7 +48,7 @@ public class ProfesseurDAO {
     }
 
 
-    public static void mettreAJourProfesseur(Professeur professeur) {
+    public static void mettreAJourProfesseur(Professeur professeur,int id) {
         String sql = "UPDATE Professeur SET nom = ?, prenom = ?, specialite = ? WHERE id = ?";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {

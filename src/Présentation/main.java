@@ -22,13 +22,9 @@ public class main {
         Professeur pr = new Professeur("ali","radi","phisique");
 
 
-        try {
-           // LivreDAO.ajouterLivre(livre1);
-            ProfesseurDAO.ajouterProfesseur(pr);
-            System.out.println("test");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        // LivreDAO.ajouterLivre(livre1);
+        ProfesseurDAO.ajouterProfesseur(pr);
+        System.out.println("test");
     }
 
 
