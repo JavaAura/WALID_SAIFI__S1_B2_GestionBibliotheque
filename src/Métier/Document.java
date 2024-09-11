@@ -23,7 +23,9 @@ public abstract class Document {
 
     public abstract void afficherDetails();
 
-
+    public long getId() {
+        return id;
+    }
 
     public String getTitre() {
         return titre;
@@ -45,7 +47,7 @@ public abstract class Document {
         return etat;
     }
 
-    // Setters
+
     public void setId(long id) {
         this.id = id;
     }

@@ -32,8 +32,9 @@ public class main {
        // EtudiantDAO.ajouterEtudiant(e);
        // EtudiantDAO.afficherTousLesEtudiants();
         //ProfesseurDAO.afficherTousLesProfesseurs();
-        UtilisateurDAO.afficherToutUtilisateur();
-        System.out.println("test");
+       // UtilisateurDAO.afficherToutUtilisateur();
+        LivreDAO.afficherTousLesLivres();
+      
     }
 
 

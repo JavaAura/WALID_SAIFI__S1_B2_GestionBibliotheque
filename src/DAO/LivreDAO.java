@@ -8,9 +8,6 @@ import src.Métier.*;
 public class LivreDAO {
 
 
-
-
-
     public static void ajouterLivre(Livre livre) throws SQLException {
         String sql = "INSERT INTO Livre (titre, auteur, date_de_publication, nombre_de_pages, etat, isbn) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = dbConnection.connect();
@@ -59,6 +56,57 @@ public class LivreDAO {
 
             stmt.setInt(1, id);
             stmt.executeUpdate();
+        }
+    }
+
+
+    public static List<Livre> obtenirTousLesLivres() {
+        List<Livre> livres = new ArrayList<>();
+        String sql = "SELECT * FROM Livre";
+
+        try (Connection conn = dbConnection.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String titre = rs.getString("titre");
+                String auteur = rs.getString("auteur");
+                Date dateDePublication = rs.getDate("date_de_publication");
+                int nombreDePages = rs.getInt("nombre_de_pages");
+                String etat = rs.getString("etat");
+                String isbn = rs.getString("isbn");
+
+                Livre livre = new Livre(titre, auteur, dateDePublication.toLocalDate(), nombreDePages, etat, isbn);
+                livre.setId(id);
+                livres.add(livre);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return livres;
+    }
+
+    // Méthode pour afficher tous les livres
+    public static void afficherTousLesLivres() {
+        System.out.println("Détails du livre:");
+        List<Livre> livres = obtenirTousLesLivres();
+        if (livres.isEmpty()) {
+            System.out.println("Aucun livre trouvé.");
+        } else {
+            for (Livre livre : livres) {
+                System.out.println("---------------------------");
+                System.out.println("ID: " + livre.getId());
+                System.out.println("Titre: " + livre.getTitre());
+                System.out.println("Auteur: " + livre.getAuteur());
+                System.out.println("Date de publication: " + livre.getDateDePublication());
+                System.out.println("Nombre de pages: " + livre.getNombreDePages());
+                System.out.println("État: " + livre.getEtat());
+                System.out.println("ISBN: " + livre.getIsbn());
+                System.out.println();
+            }
         }
     }
 
