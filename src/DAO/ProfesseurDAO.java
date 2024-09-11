@@ -108,7 +108,7 @@ public class ProfesseurDAO {
         return professeurs;
     }
 
-    // Méthode pour afficher tous les professeurs
+
     public static void afficherTousLesProfesseurs() {
         List<Professeur> professeurs = obtenirTousLesProfesseurs();
         if (professeurs.isEmpty()) {

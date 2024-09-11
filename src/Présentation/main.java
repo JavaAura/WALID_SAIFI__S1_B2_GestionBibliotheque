@@ -23,13 +23,16 @@ public class main {
         Etudiant e = new Etudiant("oumaima","SAIFI","K148");
         Etudiant e1 = new Etudiant("walidl","SAIFI","K855");
         Etudiant e2 = new Etudiant("manal","SAIFI","K246");
+        ProfesseurDAO.ajouterProfesseur(pr);
 
 
         //LivreDAO.ajouterLivre(livre1);
 
      // EtudiantDAO.afficherEtudiantDetails();
-        EtudiantDAO.ajouterEtudiant(e);
-        EtudiantDAO.afficherTousLesEtudiants();
+       // EtudiantDAO.ajouterEtudiant(e);
+       // EtudiantDAO.afficherTousLesEtudiants();
+        //ProfesseurDAO.afficherTousLesProfesseurs();
+        UtilisateurDAO.afficherToutUtilisateur();
         System.out.println("test");
     }
 
