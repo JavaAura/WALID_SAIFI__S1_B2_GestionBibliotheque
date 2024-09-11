@@ -7,7 +7,7 @@ import src.Métier.*;
 
 public class MagazineDAO {
 
-    // Create
+
     public static void ajouterMagazine(Magazine magazine) throws SQLException {
         String sql = "INSERT INTO Magazine (titre, auteur, date_de_publication, nombre_de_pages, etat, numero) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = dbConnection.connect();
@@ -24,7 +24,6 @@ public class MagazineDAO {
         }
     }
 
-    // Read
     public static Magazine getMagazineById(int id) throws SQLException {
         String sql = "SELECT * FROM Magazine WHERE id = ?";
         try (Connection conn = dbConnection.connect();
@@ -68,7 +67,7 @@ public class MagazineDAO {
         return magazines;
     }
 
-    // Update
+
     public static void modifierMagazine(int id, Magazine magazine) throws SQLException {
         String sql = "UPDATE Magazine SET titre = ?, auteur = ?, date_de_publication = ?, nombre_de_pages = ?, etat = ?, numero = ? WHERE id = ?";
         try (Connection conn = dbConnection.connect();
@@ -86,7 +85,6 @@ public class MagazineDAO {
         }
     }
 
-    // Delete
     public static void supprimerMagazine(int id) throws SQLException {
         String sql = "DELETE FROM Magazine WHERE id = ?";
         try (Connection conn = dbConnection.connect();

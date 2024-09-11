@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class ProfesseurDAO {
 
 
-    public void ajouterProfesseur(Professeur professeur) {
+    public static void ajouterProfesseur(Professeur professeur) {
         String sql = "INSERT INTO Professeur (nom, prenom, specialite) VALUES (?, ?, ?)";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -25,7 +25,7 @@ public class ProfesseurDAO {
     }
 
 
-    public Professeur getProfesseurById(int id) {
+    public static Professeur getProfesseurById(int id) {
         Professeur professeur = null;
         String sql = "SELECT * FROM Professeur WHERE id = ?";
         try (Connection conn = dbConnection.connect();
@@ -48,7 +48,7 @@ public class ProfesseurDAO {
     }
 
 
-    public void mettreAJourProfesseur(Professeur professeur) {
+    public static void mettreAJourProfesseur(Professeur professeur) {
         String sql = "UPDATE Professeur SET nom = ?, prenom = ?, specialite = ? WHERE id = ?";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -65,7 +65,7 @@ public class ProfesseurDAO {
     }
 
 
-    public void supprimerProfesseur(int id) {
+    public static void supprimerProfesseur(int id) {
         String sql = "DELETE FROM Professeur WHERE id = ?";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {

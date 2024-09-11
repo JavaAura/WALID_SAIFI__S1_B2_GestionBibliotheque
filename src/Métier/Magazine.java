@@ -1,4 +1,4 @@
-package Métier;
+package src.Métier;
 import java.time.LocalDate;
 
 public class Magazine extends Document implements Empruntable {

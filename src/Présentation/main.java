@@ -10,7 +10,7 @@ public class main {
 
     public static void main(String[] args) throws SQLException {
 
-        Livre livre1 = new Livre(
+      /*  Livre livre1 = new Livre(
                 "Youcode",
                 "walid",
                 LocalDate.of(1954, 7, 29),
@@ -18,9 +18,13 @@ public class main {
                 "1234568521214", // ISBN de 13 caractères
                 "disponible"
         );
+*/
+        Professeur pr = new Professeur("ali","radi","phisique");
+
 
         try {
-            LivreDAO.ajouterLivre(livre1);
+           // LivreDAO.ajouterLivre(livre1);
+            ProfesseurDAO.ajouterProfesseur(pr);
             System.out.println("test");
         } catch (SQLException e) {
             throw new RuntimeException(e);
