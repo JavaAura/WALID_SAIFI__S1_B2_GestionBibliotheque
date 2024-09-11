@@ -39,17 +39,19 @@ CREATE TABLE Emprunt (
     id SERIAL PRIMARY KEY,
     document_id INT NOT NULL REFERENCES Document(id),
     utilisateur_id INT NOT NULL REFERENCES Utilisateur(id),
-    date_emprunt DATE NOT NULL,
+    date_emprunt DATE NOT NULL DEFAULT CURRENT_DATE,  -- Utilise la date actuelle par défaut
     date_retour DATE
 );
+
 
 CREATE TABLE Reservation (
     id SERIAL PRIMARY KEY,
     document_id INT NOT NULL REFERENCES Document(id),
     utilisateur_id INT NOT NULL REFERENCES Utilisateur(id),
-    date_reservation DATE NOT NULL,
+    date_reservation DATE NOT NULL DEFAULT CURRENT_DATE,  -- Utilise la date actuelle par défaut
     date_annulation DATE
 );
+
 
 
 -- Table JournalScientifique qui hérite de Document
