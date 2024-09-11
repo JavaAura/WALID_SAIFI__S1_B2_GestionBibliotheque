@@ -58,6 +58,7 @@ CREATE TABLE JournalScientifique (
     domaine_recherche VARCHAR(255)
 ) INHERITS (Document);
 
+
 -- Table ThèseUniversitaire qui hérite de Document
 CREATE TABLE TheseUniversitaire (
     universite VARCHAR(255),
