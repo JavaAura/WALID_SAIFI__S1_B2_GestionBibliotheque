@@ -1,25 +1,27 @@
-package Métier;
+package src.Métier;
 
 public class Etudiant extends Utilisateur {
-    private String niveau;
+    private String matricule;
 
-    public Etudiant(String nom, String niveau) {
-        super(nom);
-        this.niveau = niveau;
+    public Etudiant(String nom, String prenom, String matricule) {
+        super(nom, prenom);
+        this.matricule = matricule;
     }
 
 
-    public String getNiveau() {
-        return niveau;
+    public String getMatricule() {
+        return matricule;
     }
 
-
-    public void setNiveau(String niveau) {
-        this.niveau = niveau;
+    public void setMatricule(String matricule) {
+        this.matricule = matricule;
     }
 
+    /**
+     *
+     */
     @Override
     public void afficherDetails() {
-        System.out.println("Étudiant: " + getNom() + ", Niveau: " + niveau);
+
     }
 }

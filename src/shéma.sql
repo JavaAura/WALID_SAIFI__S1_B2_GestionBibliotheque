@@ -21,8 +21,7 @@ CREATE TABLE Magazine (
 CREATE TABLE Utilisateur (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    type_utilisateur VARCHAR(50)
+    prenom VARCHAR(255) UNIQUE NOT NULL
 );
 
 
