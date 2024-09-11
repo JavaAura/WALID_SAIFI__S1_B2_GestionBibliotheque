@@ -27,7 +27,7 @@ public class TheseUniversitaire extends Document {
                     + ", État: " + getEtat());
         }
 
-   
+
         public String getUniversite() {
             return universite;
         }
