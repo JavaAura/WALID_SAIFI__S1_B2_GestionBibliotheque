@@ -6,9 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import src.Métier.Etudiant;
 
+
 public class EtudiantDAO {
 
-    public void ajouterEtudiant(Etudiant etudiant) {
+    public static void ajouterEtudiant(Etudiant etudiant) {
         String sql = "INSERT INTO Etudiant (nom, prenom, matricule) VALUES (?, ?, ?)";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -24,7 +25,7 @@ public class EtudiantDAO {
         }
     }
 
-    public Etudiant obtenirEtudiant(String matricule) {
+    public  static  Etudiant obtenirEtudiant(String matricule) {
         String sql = "SELECT id, nom, prenom, matricule FROM Etudiant WHERE matricule = ?";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -47,7 +48,7 @@ public class EtudiantDAO {
         return null;
     }
 
-    public void mettreAJourEtudiant(Etudiant etudiant) {
+    public static  void mettreAJourEtudiant(Etudiant etudiant) {
         String sql = "UPDATE Etudiant SET nom = ?, prenom = ?, matricule = ? WHERE matricule = ?";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -64,7 +65,7 @@ public class EtudiantDAO {
         }
     }
 
-    public void supprimerEtudiant(String matricule) {
+    public  static  void supprimerEtudiant(String matricule) {
         String sql = "DELETE FROM Etudiant WHERE matricule = ?";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
