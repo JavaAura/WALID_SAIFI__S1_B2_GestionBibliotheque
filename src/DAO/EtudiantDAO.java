@@ -111,12 +111,13 @@ public class EtudiantDAO {
 
 
     public static void afficherTousLesEtudiants() {
+        System.out.println("Détails de l'étudiant:");
         List<Etudiant> etudiants = obtenirTousLesEtudiants();
         if (etudiants.isEmpty()) {
             System.out.println("Aucun étudiant trouvé.");
         } else {
             for (Etudiant etudiant : etudiants) {
-                System.out.println("Détails de l'étudiant:");
+                System.out.println("---------------------");
                 System.out.println("ID: " + etudiant.getId());
                 System.out.println("Nom: " + etudiant.getNom());
                 System.out.println("Prénom: " + etudiant.getPrenom());

@@ -110,12 +110,13 @@ public class ProfesseurDAO {
 
 
     public static void afficherTousLesProfesseurs() {
+        System.out.println("Détails du professeur:");
         List<Professeur> professeurs = obtenirTousLesProfesseurs();
         if (professeurs.isEmpty()) {
             System.out.println("Aucun professeur trouvé.");
         } else {
             for (Professeur professeur : professeurs) {
-                System.out.println("Détails du professeur:");
+                System.out.println("------------------------------");
                 System.out.println("ID: " + professeur.getId());
                 System.out.println("Nom: " + professeur.getNom());
                 System.out.println("Prénom: " + professeur.getPrenom());
