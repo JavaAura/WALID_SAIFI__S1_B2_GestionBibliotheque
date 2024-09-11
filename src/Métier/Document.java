@@ -44,7 +44,7 @@ public abstract class Document {
     }
 
     public String getEtat() {
-        return etat;
+        return this.etat;
     }
 
 

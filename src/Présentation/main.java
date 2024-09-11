@@ -32,8 +32,8 @@ public class main {
        // EtudiantDAO.afficherTousLesEtudiants();
         //ProfesseurDAO.afficherTousLesProfesseurs();
        // UtilisateurDAO.afficherToutUtilisateur();
-        LivreDAO.afficherTousLesLivres();
-
+      //  LivreDAO.afficherTousLesLivres();
+       MagazineDAO.afficherTousLesMagazines();
     }
 
 

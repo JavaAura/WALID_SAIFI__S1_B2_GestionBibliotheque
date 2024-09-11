@@ -4,7 +4,7 @@ import java.time.LocalDate;
 public class Livre extends Document implements Empruntable, Réservable {
     private String isbn;
 
-    public Livre(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String isbn, String etat) {
+    public Livre(String titre, String auteur, LocalDate dateDePublication, int nombreDePages,String etat, String isbn) {
         super(titre, auteur, dateDePublication, nombreDePages, etat);
         this.isbn = isbn;
     }

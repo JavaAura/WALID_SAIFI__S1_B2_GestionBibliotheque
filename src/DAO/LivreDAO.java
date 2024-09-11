@@ -89,7 +89,7 @@ public class LivreDAO {
         return livres;
     }
 
-    // Méthode pour afficher tous les livres
+
     public static void afficherTousLesLivres() {
         System.out.println("Détails du livre:");
         List<Livre> livres = obtenirTousLesLivres();
