@@ -20,11 +20,11 @@ public class main {
         );
 */
         Professeur pr = new Professeur("walid","saifi","info");
-        Etudiant e = new Etudiant("manal","dd","K25741");
+        Etudiant e = new Etudiant("salahlll","SAIFI","K852174196");
 
         // LivreDAO.ajouterLivre(livre1);
        // ProfesseurDAO.supprimerProfesseur(1);
-
+      EtudiantDAO.supprimerEtudiant("K852174196");
         System.out.println("test");
     }
 

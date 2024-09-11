@@ -48,7 +48,7 @@ public class EtudiantDAO {
         return null;
     }
 
-    public static  void mettreAJourEtudiant(Etudiant etudiant) {
+    public static void mettreAJourEtudiant(Etudiant etudiant, String matricule) {
         String sql = "UPDATE Etudiant SET nom = ?, prenom = ?, matricule = ? WHERE matricule = ?";
         try (Connection conn = dbConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -56,7 +56,7 @@ public class EtudiantDAO {
             pstmt.setString(1, etudiant.getNom());
             pstmt.setString(2, etudiant.getPrenom());
             pstmt.setString(3, etudiant.getMatricule());
-            pstmt.setString(4, etudiant.getMatricule());
+            pstmt.setString(4, matricule);  // Utilisation du matricule pour la clause WHERE
 
             pstmt.executeUpdate();
 
@@ -64,6 +64,7 @@ public class EtudiantDAO {
             System.out.println(e.getMessage());
         }
     }
+
 
     public  static  void supprimerEtudiant(String matricule) {
         String sql = "DELETE FROM Etudiant WHERE matricule = ?";
