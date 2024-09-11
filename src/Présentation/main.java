@@ -33,7 +33,7 @@ public class main {
         //ProfesseurDAO.afficherTousLesProfesseurs();
        // UtilisateurDAO.afficherToutUtilisateur();
       //  LivreDAO.afficherTousLesLivres();
-       MagazineDAO.afficherTousLesMagazines();
+       //MagazineDAO.afficherTousLesMagazines();
     }
 
 
