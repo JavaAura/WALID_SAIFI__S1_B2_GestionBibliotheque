@@ -1,9 +1,9 @@
-package DAO;
+package src.DAO;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import Métier.Magazine;
+import src.Métier.*;
 
 public class MagazineDAO {
 
