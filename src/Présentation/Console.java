@@ -1,5 +1,9 @@
 package src.Présentation;
+import src.DAO.*;
 
+import src.Métier.*;
+
+import java.time.LocalDate;
 import java.util.Scanner;
 
 
@@ -68,11 +72,109 @@ public class Console {
         }
     }
 
-    public  void  ajouterDocumentConsole(){
-
+    public static void ajouterDocument() {
         Scanner scanner = new Scanner(System.in);
-        
+        System.out.println("Quel type de document voulez-vous ajouter ?");
+        System.out.println("1- Livre");
+        System.out.println("2- Magazine");
+        System.out.println("3- Journal Scientifique");
+        System.out.println("4- Thèse Universitaire");
+        System.out.print("Votre choix: ");
+        int choix = scanner.nextInt();
+        scanner.nextLine(); // Pour consommer la nouvelle ligne après l'entier
 
+        switch (choix) {
+            case 1:
+                Livre livre = saisirLivre();
+                LivreDAO.ajouterLivre(livre);
+                break;
+            case 2:
+                Magazine magazine = saisirMagazine();
+                MagazineDAO.ajouterMagazine(magazine);
+                break;
+            case 3:
+                JournalScientifique journal = saisirJournalScientifique();
+                JournalScientifiqueDAO.ajouterJournalScientifique(journal);
+                break;
+            case 4:
+                TheseUniversitaire these = saisirTheseUniversitaire();
+                TheseUniversitaireDAO.ajouterTheseUniversitaire(these);
+                break;
+            default:
+                System.out.println("Choix invalide.");
+        }
+    }
+
+
+
+
+    public static Livre saisirLivre() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Titre: ");
+        String titre = scanner.nextLine();
+        System.out.print("Auteur: ");
+        String auteur = scanner.nextLine();
+        System.out.print("Date de publication (yyyy-mm-dd): ");
+        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        System.out.print("Nombre de pages: ");
+        int nombreDePages = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("ISBN: ");
+        String isbn = scanner.nextLine();
+
+        return new Livre(titre, auteur, dateDePublication, nombreDePages, isbn);
+    }
+
+    public static Magazine saisirMagazine() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Titre: ");
+        String titre = scanner.nextLine();
+        System.out.print("Auteur: ");
+        String auteur = scanner.nextLine();
+        System.out.print("Date de publication (yyyy-mm-dd): ");
+        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        System.out.print("Nombre de pages: ");
+        int nombreDePages = scanner.nextInt();
+        System.out.print("Numéro: ");
+        int numero = scanner.nextInt();
+
+        return new Magazine(titre, auteur, dateDePublication, nombreDePages, numero);
+    }
+
+    public static JournalScientifique saisirJournalScientifique() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Titre: ");
+        String titre = scanner.nextLine();
+        System.out.print("Auteur: ");
+        String auteur = scanner.nextLine();
+        System.out.print("Date de publication (yyyy-mm-dd): ");
+        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        System.out.print("Nombre de pages: ");
+        int nombreDePages = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Domaine de recherche: ");
+        String domaineRecherche = scanner.nextLine();
+
+        return new JournalScientifique(titre, auteur, dateDePublication, nombreDePages, domaineRecherche);
+    }
+
+    public static TheseUniversitaire saisirTheseUniversitaire() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Titre: ");
+        String titre = scanner.nextLine();
+        System.out.print("Auteur: ");
+        String auteur = scanner.nextLine();
+        System.out.print("Date de publication (yyyy-mm-dd): ");
+        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        System.out.print("Nombre de pages: ");
+        int nombreDePages = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Université: ");
+        String universite = scanner.nextLine();
+        System.out.print("Domaine: ");
+        String domaine = scanner.nextLine();
+
+        return new TheseUniversitaire(titre, auteur, dateDePublication, nombreDePages, universite, domaine);
     }
 
 }
