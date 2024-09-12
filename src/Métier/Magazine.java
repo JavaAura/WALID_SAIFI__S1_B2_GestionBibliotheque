@@ -1,5 +1,6 @@
 package src.Métier;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Magazine extends Document{
     private int numéro;
@@ -32,4 +33,22 @@ public class Magazine extends Document{
     public void setNuméro(int numéro) {
         this.numéro = numéro;
     }
+
+
+    public static Magazine saisirMagazine() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Titre: ");
+        String titre = scanner.nextLine();
+        System.out.print("Auteur: ");
+        String auteur = scanner.nextLine();
+        System.out.print("Date de publication (yyyy-mm-dd): ");
+        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        System.out.print("Nombre de pages: ");
+        int nombreDePages = scanner.nextInt();
+        System.out.print("Numéro: ");
+        int numero = scanner.nextInt();
+
+        return new Magazine(titre, auteur, dateDePublication, nombreDePages, numero);
+    }
+
 }

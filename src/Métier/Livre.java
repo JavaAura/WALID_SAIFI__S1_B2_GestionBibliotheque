@@ -51,9 +51,7 @@ public class Livre extends Document {
     }
 
 
-    /**
-     *
-     */
+
     @Override
     public void afficherDetails() {
 

@@ -1,5 +1,6 @@
 package src.Métier;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class TheseUniversitaire extends Document {
 
@@ -19,6 +20,24 @@ public class TheseUniversitaire extends Document {
         this.domaine = domaine;
     }
 
+    public static TheseUniversitaire saisirTheseUniversitaire() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Titre: ");
+        String titre = scanner.nextLine();
+        System.out.print("Auteur: ");
+        String auteur = scanner.nextLine();
+        System.out.print("Date de publication (yyyy-mm-dd): ");
+        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        System.out.print("Nombre de pages: ");
+        int nombreDePages = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Université: ");
+        String universite = scanner.nextLine();
+        System.out.print("Domaine: ");
+        String domaine = scanner.nextLine();
+
+        return new TheseUniversitaire(titre, auteur, dateDePublication, nombreDePages, universite, domaine);
+    }
     @Override
         public void afficherDetails() {
             System.out.println("Thèse Universitaire - Université: " + universite

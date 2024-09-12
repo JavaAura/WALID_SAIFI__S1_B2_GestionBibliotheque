@@ -1,6 +1,9 @@
 package src.DAO;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.Scanner;
+
 import src.Métier.JournalScientifique;
 
 public class JournalScientifiqueDAO {
@@ -98,4 +101,7 @@ public class JournalScientifiqueDAO {
         }
         System.out.println("--------------------------------------------------------------------------------------------------------------------- ");
     }
+
+
+
 }
