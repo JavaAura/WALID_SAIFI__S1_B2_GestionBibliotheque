@@ -9,6 +9,15 @@ public abstract class Document {
     protected LocalDate dateDePublication;
     protected int nombreDePages;
     protected String etat;
+
+    public boolean isReserve() {
+        return reserve;
+    }
+
+    public void setReserve(boolean reserve) {
+        this.reserve = reserve;
+    }
+
     protected  boolean reserve;
 
 
