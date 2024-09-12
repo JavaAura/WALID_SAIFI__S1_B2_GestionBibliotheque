@@ -4,8 +4,21 @@ CREATE TABLE Document (
     auteur VARCHAR(255),
     date_de_publication DATE,
     nombre_de_pages INT,
-    etat VARCHAR(50) -- Par exemple: disponible, emprunté, réservé
+    etatDocument VARCHAR(50) -- Par exemple: disponible, emprunté
+    reserve boolant;
 );
+
+-- Table JournalScientifique qui hérite de Document
+CREATE TABLE JournalScientifique (
+    domaine_recherche VARCHAR(255)
+) INHERITS (Document);
+
+
+-- Table ThèseUniversitaire qui hérite de Document
+CREATE TABLE TheseUniversitaire (
+    universite VARCHAR(255),
+    domaine VARCHAR(255)
+) INHERITS (Document);
 
 
 
@@ -17,6 +30,9 @@ CREATE TABLE Livre (
 CREATE TABLE Magazine (
     numero VARCHAR(10) UNIQUE NOT NULL
 ) INHERITS (Document);
+
+
+
 
 CREATE TABLE Utilisateur (
     id SERIAL PRIMARY KEY,
@@ -35,34 +51,8 @@ CREATE TABLE Professeur (
     departement VARCHAR(255)
 ) INHERITS (Utilisateur);
 
-CREATE TABLE Emprunt (
-    id SERIAL PRIMARY KEY,
-    document_id INT NOT NULL REFERENCES Document(id),
-    utilisateur_id INT NOT NULL REFERENCES Utilisateur(id),
-    date_emprunt DATE NOT NULL DEFAULT CURRENT_DATE,  -- Utilise la date actuelle par défaut
-    date_retour DATE
-);
-
-
-CREATE TABLE Reservation (
-    id SERIAL PRIMARY KEY,
-    document_id INT NOT NULL REFERENCES Document(id),
-    utilisateur_id INT NOT NULL REFERENCES Utilisateur(id),
-    date_reservation DATE NOT NULL DEFAULT CURRENT_DATE,  -- Utilise la date actuelle par défaut
-    date_annulation DATE
-);
 
 
 
--- Table JournalScientifique qui hérite de Document
-CREATE TABLE JournalScientifique (
-    domaine_recherche VARCHAR(255)
-) INHERITS (Document);
 
-
--- Table ThèseUniversitaire qui hérite de Document
-CREATE TABLE TheseUniversitaire (
-    universite VARCHAR(255),
-    domaine VARCHAR(255)
-) INHERITS (Document);
 
