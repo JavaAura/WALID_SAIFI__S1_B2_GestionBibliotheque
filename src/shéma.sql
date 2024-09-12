@@ -1,25 +1,24 @@
+-- Table Document
 CREATE TABLE Document (
     id SERIAL PRIMARY KEY,
     titre VARCHAR(255) NOT NULL,
     auteur VARCHAR(255),
     date_de_publication DATE,
     nombre_de_pages INT,
-    etatDocument VARCHAR(50) -- Par exemple: disponible, emprunté
-    reserve boolant;
+    etatDocument VARCHAR(50), -- Par exemple: disponible, emprunté
+    reserve BOOLEAN -- Réservé ou non
 );
 
--- Table JournalScientifique qui hérite de Document
+
 CREATE TABLE JournalScientifique (
-    domaine_recherche VARCHAR(255)
+    domaine_recherche VARCHAR(255) NOT NULL
 ) INHERITS (Document);
 
 
--- Table ThèseUniversitaire qui hérite de Document
 CREATE TABLE TheseUniversitaire (
-    universite VARCHAR(255),
-    domaine VARCHAR(255)
+    universite VARCHAR(255) NOT NULL,
+    domaine VARCHAR(255) NOT NULL
 ) INHERITS (Document);
-
 
 
 CREATE TABLE Livre (
@@ -31,6 +30,10 @@ CREATE TABLE Magazine (
     numero VARCHAR(10) UNIQUE NOT NULL
 ) INHERITS (Document);
 
+
+
+
+DROP TABLE IF EXISTS Magazine, Livre, TheseUniversitaire, JournalScientifique, Document CASCADE;
 
 
 
