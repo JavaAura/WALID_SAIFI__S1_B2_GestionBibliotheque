@@ -14,15 +14,14 @@ public class Console {
             System.out.println("2- Modifier un document");
             System.out.println("3- Supprimer un document");
             System.out.println("4- Afficher tous les documents");
-            System.out.println("5- Rechercher un document");
-            System.out.println("6- Emprunter un document");
-            System.out.println("7- Retourner un document");
-            System.out.println("8- Ajouter un utilisateur");
-            System.out.println("9- Modifier un utilisateur");
-            System.out.println("10- Supprimer un utilisateur");
-            System.out.println("11- Afficher tous les utilisateurs");
-            System.out.println("12- Quitter");
-            System.out.print("Veuillez entrer votre choix (1-12) : ");
+            System.out.println("5- Emprunter un document");
+            System.out.println("6- Retourner un document");
+            System.out.println("7- Ajouter un utilisateur");
+            System.out.println("8- Modifier un utilisateur");
+            System.out.println("9- Supprimer un utilisateur");
+            System.out.println("10-Afficher tous les utilisateurs");
+            System.out.println("11- Quitter");
+            System.out.print("Veuillez entrer votre choix (1-11) : ");
             Scanner scanner = new Scanner(System.in);
             int choix = scanner.nextInt();
             scanner.nextLine();
@@ -35,7 +34,7 @@ public class Console {
 
                     break;
                 case 3:
-                    
+
                     break;
                 case 4:
 
@@ -60,8 +59,7 @@ public class Console {
                     break;
                 case 11:
 
-                    break;
-                case 12:
+
                     System.out.println("Au revoir !");
                     return;
                 default:

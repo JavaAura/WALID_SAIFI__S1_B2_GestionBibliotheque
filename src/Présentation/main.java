@@ -8,7 +8,7 @@ import src.Métier.*;
 
 public class main {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
 
         // Création des objets Livre
         Livre l1 = new Livre(
