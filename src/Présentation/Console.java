@@ -81,11 +81,11 @@ public class Console {
         System.out.println("4- Thèse Universitaire");
         System.out.print("Votre choix: ");
         int choix = scanner.nextInt();
-        scanner.nextLine(); // Pour consommer la nouvelle ligne après l'entier
+        scanner.nextLine();
 
         switch (choix) {
             case 1:
-                Livre livre = saisirLivre();
+                Livre livre = Livre.saisirLivre();
                 LivreDAO.ajouterLivre(livre);
                 break;
             case 2:
@@ -108,22 +108,7 @@ public class Console {
 
 
 
-    public static Livre saisirLivre() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Titre: ");
-        String titre = scanner.nextLine();
-        System.out.print("Auteur: ");
-        String auteur = scanner.nextLine();
-        System.out.print("Date de publication (yyyy-mm-dd): ");
-        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
-        System.out.print("Nombre de pages: ");
-        int nombreDePages = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("ISBN: ");
-        String isbn = scanner.nextLine();
 
-        return new Livre(titre, auteur, dateDePublication, nombreDePages, isbn);
-    }
 
     public static Magazine saisirMagazine() {
         Scanner scanner = new Scanner(System.in);

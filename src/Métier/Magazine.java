@@ -1,7 +1,7 @@
 package src.Métier;
 import java.time.LocalDate;
 
-public class Magazine extends Document implements Empruntable {
+public class Magazine extends Document{
     private int numéro;
 
 
@@ -21,21 +21,7 @@ public class Magazine extends Document implements Empruntable {
     }
 
 
-    @Override
-    public void emprunter() {
-        if ("disponible".equals(etat)) {
-            setEtat("emprunté");
-            System.out.println("Magazine emprunté.");
-        } else {
-            System.out.println("Le magazine n'est pas disponible pour l'emprunt.");
-        }
-    }
 
-    @Override
-    public void retourner() {
-        setEtat("disponible");
-        System.out.println("Magazine retourné.");
-    }
 
 
     public int getNuméro() {
