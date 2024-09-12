@@ -1,5 +1,7 @@
 package src.Métier;
 
+import src.DAO.ProfesseurDAO;
+
 import java.util.Scanner;
 
 public class Professeur extends Utilisateur {
@@ -40,5 +42,24 @@ public class Professeur extends Utilisateur {
         return  professeur;
 
     }
+
+
+    public static void modifierProfesseur() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Entrez l'ID du professeur à modifier: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        Professeur professeur = ProfesseurDAO.getProfesseurById(id);
+        if (professeur != null) {
+            System.out.println("Saisissez les nouvelles informations pour ce professeur.");
+            professeur = saisirProfesseur();
+            ProfesseurDAO.mettreAJourProfesseur(professeur, id);
+            System.out.println("Professeur modifié avec succès.");
+        } else {
+            System.out.println("Professeur non trouvé.");
+        }
+    }
+
 
 }

@@ -55,7 +55,7 @@ public abstract class Utilisateur {
         System.out.println("2- Professeur");
         System.out.print("Votre choix: ");
         int choix = scanner.nextInt();
-        scanner.nextLine(); // Consommer la nouvelle ligne
+        scanner.nextLine();
 
         switch (choix) {
             case 1:
@@ -73,5 +73,46 @@ public abstract class Utilisateur {
                 System.out.println("Choix invalide.");
         }
     }
+
+    public static void modifierUtilisateur() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Quel type d'utilisateur voulez-vous modifier ?");
+        System.out.println("1- Étudiant");
+        System.out.println("2- Professeur");
+        System.out.print("Votre choix: ");
+        int choix = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choix) {
+            case 1:
+                System.out.print("Entrez le matricule de l'étudiant à modifier: ");
+                String matricule = scanner.nextLine();
+                Etudiant etudiant = EtudiantDAO.obtenirEtudiant(matricule);
+                if (etudiant != null) {
+                    etudiant = Etudiant.saisirEtudiant();
+                    EtudiantDAO.mettreAJourEtudiant(etudiant, matricule);
+                } else {
+                    System.out.println("Étudiant non trouvé.");
+                }
+                break;
+
+            case 2:
+                System.out.print("Entrez l'ID du professeur à modifier: ");
+                int idProfesseur = scanner.nextInt();
+                scanner.nextLine();
+                Professeur professeur = ProfesseurDAO.getProfesseurById(idProfesseur);
+                if (professeur != null) {
+                    professeur = Professeur.saisirProfesseur();
+                    ProfesseurDAO.mettreAJourProfesseur(professeur, idProfesseur);
+                } else {
+                    System.out.println("Professeur non trouvé.");
+                }
+                break;
+
+            default:
+                System.out.println("Choix invalide.");
+        }
+    }
+
 
 }

@@ -1,5 +1,7 @@
 package src.Métier;
 
+import src.DAO.EtudiantDAO;
+
 import java.util.Scanner;
 
 public class Etudiant extends Utilisateur {
@@ -48,6 +50,24 @@ public class Etudiant extends Utilisateur {
 
         return  etudiant;
 
+    }
+
+
+
+    public static void modifierEtudiant() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Entrez le matricule de l'étudiant à modifier: ");
+        String matricule = scanner.nextLine();
+
+        Etudiant etudiant = EtudiantDAO.obtenirEtudiant(matricule);
+        if (etudiant != null) {
+            System.out.println("Saisissez les nouvelles informations pour cet étudiant.");
+            etudiant = saisirEtudiant();
+            EtudiantDAO.mettreAJourEtudiant(etudiant, matricule);
+            System.out.println("Étudiant modifié avec succès.");
+        } else {
+            System.out.println("Étudiant non trouvé.");
+        }
     }
 
 
