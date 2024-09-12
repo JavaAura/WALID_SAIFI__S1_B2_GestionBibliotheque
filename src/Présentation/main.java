@@ -10,20 +10,20 @@ public class main {
 
     public static void main(String[] args) throws SQLException {
 
-      Livre livre1 = new Livre(
-                "Youcode",
-                "walid",
+      Livre l1 = new Livre(
+                "test",
+                "YouCode",
                 LocalDate.of(1954, 7, 29),
                 1178,
-                "1234568521214");// ISBN de 13 caractères);
+                "0369741258745");// ISBN de 13 caractères);
 
-      //  Professeur pr = new Professeur("walid","saifi","info");
+       //  Professeur pr = new Professeur("walid","saifi","info");
        // Etudiant e = new Etudiant("oumaima","SAIFI","K148");
 
        // ProfesseurDAO.ajouterProfesseur(pr);
 
 
-        LivreDAO.ajouterLivre(livre1);
+        LivreDAO.modifierLivre(1,l1);
 
      // EtudiantDAO.afficherEtudiantDetails();
        // EtudiantDAO.ajouterEtudiant(e);

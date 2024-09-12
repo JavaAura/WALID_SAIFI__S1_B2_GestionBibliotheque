@@ -5,8 +5,8 @@ CREATE TABLE Document (
     auteur VARCHAR(255),
     date_de_publication DATE,
     nombre_de_pages INT,
-    etatDocument VARCHAR(50), -- Par exemple: disponible, emprunté
-    reserve BOOLEAN -- Réservé ou non
+    etatDocument VARCHAR(50) DEFAULT 'disponible',
+    reserve BOOLEAN DEFAULT FALSE
 );
 
 

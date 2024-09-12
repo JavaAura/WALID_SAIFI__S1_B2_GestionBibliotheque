@@ -10,9 +10,10 @@ public class LivreDAO {
 
 
 
-
     public static void ajouterLivre(Livre livre) throws SQLException {
-        String sql = "INSERT INTO Livre (titre, auteur, date_de_publication, nombre_de_pages, etatDocument, reserve, isbn) VALUES (?, ?, ?, ?, ?, ?)";
+
+        String sql = "INSERT INTO Livre (titre, auteur, date_de_publication, nombre_de_pages, isbn) VALUES (?, ?, ?, ?, ?)";
+
         try (Connection conn = dbConnection.connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -21,33 +22,54 @@ public class LivreDAO {
             stmt.setString(2, livre.getAuteur());
             stmt.setDate(3, Date.valueOf(livre.getDateDePublication()));
             stmt.setInt(4, livre.getNombreDePages());
-            stmt.setString(5, livre.getEtat());
-
 
             String isbn = livre.getIsbn();
+
             if (isbn.length() > 13) {
                 throw new IllegalArgumentException("L'ISBN dépasse la longueur maximale autorisée.");
             }
-            stmt.setString(6, isbn);
+            stmt.setString(5, isbn);
+
 
             stmt.executeUpdate();
+        } catch (SQLException e) {
+
+            System.err.println("Erreur lors de l'ajout du livre : " + e.getMessage());
+            throw e;
+        } catch (IllegalArgumentException e) {
+
+
         }
     }
 
-    public static void modifierLivre(int id, Livre livre) throws SQLException {
-        String sql = "UPDATE Livre SET titre = ?, auteur = ?, date_de_publication = ?, nombre_de_pages = ?, etatDocument = ?, isbn = ? WHERE id = ?";
+
+
+    public static void modifierLivre(int id, Livre livre) {
+        String sql = "UPDATE Livre SET titre = ?, auteur = ?, date_de_publication = ?, nombre_de_pages = ?, isbn = ? WHERE id = ?";
+
         try (Connection conn = dbConnection.connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
+            // Paramétrage des valeurs dans la requête SQL
             stmt.setString(1, livre.getTitre());
             stmt.setString(2, livre.getAuteur());
             stmt.setDate(3, Date.valueOf(livre.getDateDePublication()));
             stmt.setInt(4, livre.getNombreDePages());
-            stmt.setString(5, livre.getEtat());
-            stmt.setString(6, livre.getIsbn());
-            stmt.setInt(7, id);
+            stmt.setString(5, livre.getIsbn());
+            stmt.setInt(6, id); // Le paramètre id doit être le dernier
 
+            // Exécution de la mise à jour
             stmt.executeUpdate();
+            System.out.println("Livre mis à jour avec succès.");
+
+        } catch (SQLException e) {
+            // Gestion des erreurs SQL
+            System.err.println("Erreur lors de la modification du livre : " + e.getMessage());
+            // Vous pouvez aussi enregistrer l'erreur dans un fichier de log si nécessaire
+        } catch (IllegalArgumentException e) {
+            // Gestion des erreurs de validation
+            System.err.println("Erreur de validation : " + e.getMessage());
+            // Vous pouvez aussi enregistrer l'erreur dans un fichier de log si nécessaire
         }
     }
 

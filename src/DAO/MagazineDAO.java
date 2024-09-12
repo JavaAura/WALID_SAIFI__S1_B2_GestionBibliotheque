@@ -9,7 +9,7 @@ public class MagazineDAO {
 
 
     public static void ajouterMagazine(Magazine magazine) throws SQLException {
-        // SQL sans inclure 'etat' puisque la valeur par défaut est utilisée
+
         String sql = "INSERT INTO Magazine (titre, auteur, date_de_publication, nombre_de_pages, numero) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = dbConnection.connect();
@@ -20,7 +20,7 @@ public class MagazineDAO {
             stmt.setString(2, magazine.getAuteur());
             stmt.setDate(3, Date.valueOf(magazine.getDateDePublication()));
             stmt.setInt(4, magazine.getNombreDePages());
-            stmt.setString(5, String.valueOf(magazine.getNuméro())); // Conversion de l'entier en chaîne de caractères si nécessaire
+            stmt.setString(5, String.valueOf(magazine.getNuméro())); // Assurez-vous que numéro est une chaîne de caractères en SQL
 
             // Exécution de la mise à jour
             stmt.executeUpdate();
@@ -30,6 +30,7 @@ public class MagazineDAO {
             throw e; // Relancer l'exception après log
         }
     }
+
 
 
 
