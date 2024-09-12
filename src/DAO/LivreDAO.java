@@ -10,7 +10,7 @@ public class LivreDAO {
 
 
 
-    public static void ajouterLivre(Livre livre) throws SQLException {
+    public static void ajouterLivre(Livre livre) {
 
         String sql = "INSERT INTO Livre (titre, auteur, date_de_publication, nombre_de_pages, isbn) VALUES (?, ?, ?, ?, ?)";
 
@@ -49,7 +49,7 @@ public class LivreDAO {
         try (Connection conn = dbConnection.connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            // Paramétrage des valeurs dans la requête SQL
+
             stmt.setString(1, livre.getTitre());
             stmt.setString(2, livre.getAuteur());
             stmt.setDate(3, Date.valueOf(livre.getDateDePublication()));
@@ -78,5 +78,33 @@ public class LivreDAO {
             stmt.executeUpdate();
         }
     }
+
+
+    public static void afficherTousLesLivres() {
+        System.out.println("---------------------------------------------------Liste des Livre:----------------------------------------------------------------------");
+        String sql = "SELECT * FROM Livre";
+
+        try (Connection conn = dbConnection.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String titre = rs.getString("titre");
+                String auteur = rs.getString("auteur");
+                Date dateDePublication = rs.getDate("date_de_publication");
+                int nombreDePages = rs.getInt("nombre_de_pages");
+                String isbn = rs.getString("isbn");
+
+                System.out.println(String.format("ID: %d, Titre: %s, Auteur: %s, Date de publication: %s, Nombre de pages: %d, ISBN: %s",
+                        id, titre, auteur, dateDePublication.toLocalDate(), nombreDePages, isbn));
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de l'affichage des livres : " + e.getMessage());
+        }
+        System.out.println("------------------------------------------------------------------------------------------------------------------------");
+    }
+
 
 }

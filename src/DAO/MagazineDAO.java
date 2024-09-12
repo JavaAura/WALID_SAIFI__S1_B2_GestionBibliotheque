@@ -39,8 +39,8 @@ public class MagazineDAO {
             stmt.setString(2, magazine.getAuteur());
             stmt.setDate(3, Date.valueOf(magazine.getDateDePublication()));
             stmt.setInt(4, magazine.getNombreDePages());
-            stmt.setInt(5, magazine.getNuméro()); // Le numéro à mettre à jour
-            stmt.setInt(6, magazine.getNuméro()); // Numéro de l'enregistrement à modifier
+            stmt.setInt(5, magazine.getNuméro());
+            stmt.setInt(6, magazine.getNuméro());
 
             int rowsAffected = stmt.executeUpdate();
 

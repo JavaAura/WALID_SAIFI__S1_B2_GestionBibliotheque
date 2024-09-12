@@ -16,14 +16,14 @@ public class main {
                 "Antoine de Saint-Exupéry",
                 LocalDate.of(1943, 4, 6),
                 96,
-                "9780156012195");
+                "97801560195");
 
         Livre l2 = new Livre(
                 "1984",
                 "George Orwell",
                 LocalDate.of(1949, 6, 8),
                 328,
-                "9780451524935");
+                "97804515235");
 
         Livre l3 = new Livre(
                 "La Peste",
@@ -31,7 +31,7 @@ public class main {
                 LocalDate.of(1947, 6, 10),
                 307,
                 "9782070363027");
-
+        LivreDAO.afficherTousLesLivres();
         Livre l4 = new Livre(
                 "Moby Dick",
                 "Herman Melville",
@@ -73,7 +73,7 @@ public class main {
 
 
 
-       MagazineDAO.ajouterMagazine(m3);
+
     }
 
 
