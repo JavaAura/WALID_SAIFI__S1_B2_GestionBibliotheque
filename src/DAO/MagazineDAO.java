@@ -75,4 +75,33 @@ public class MagazineDAO {
         }
     }
 
+
+    public static void afficherTousLesMagazines() {
+        System.out.println("----------------------------------------------Liste des Magazines-------------------------------------------------------------");
+        String sql = "SELECT * FROM Magazine";
+
+        try (Connection conn = dbConnection.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String titre = rs.getString("titre");
+                String auteur = rs.getString("auteur");
+                Date dateDePublication = rs.getDate("date_de_publication");
+                int nombreDePages = rs.getInt("nombre_de_pages");
+                int numero = rs.getInt("numero");
+
+
+                System.out.println(String.format("ID: %d, Titre: %s, Auteur: %s, Date de publication: %s, Nombre de pages: %d, Numéro: %d",
+                        id, titre, auteur, dateDePublication.toLocalDate(), nombreDePages, numero));
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de l'affichage des magazines : " + e.getMessage());
+        }
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+    }
+
+
 }

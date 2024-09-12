@@ -32,6 +32,7 @@ public class main {
                 307,
                 "9782070363027");
         LivreDAO.afficherTousLesLivres();
+        MagazineDAO.afficherTousLesMagazines();
         Livre l4 = new Livre(
                 "Moby Dick",
                 "Herman Melville",
