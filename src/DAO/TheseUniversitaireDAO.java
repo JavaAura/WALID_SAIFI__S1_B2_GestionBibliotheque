@@ -107,26 +107,5 @@ public class TheseUniversitaireDAO {
     }
 
 
-    public static void modifierTheseUniversitaire(int id) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Modification de la thèse universitaire avec ID: " + id);
-        System.out.println("Entrez le nouveau titre : ");
-        String titre = scanner.nextLine();
-        System.out.println("Entrez le nouvel auteur : ");
-        String auteur = scanner.nextLine();
-        System.out.println("Entrez la nouvelle date de publication (format: yyyy-mm-dd) : ");
-        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
-        System.out.println("Entrez le nouveau nombre de pages : ");
-        int nombreDePages = scanner.nextInt();
-        scanner.nextLine();  // Consomme la ligne restante
-        System.out.println("Entrez la nouvelle université : ");
-        String universite = scanner.nextLine();
-        System.out.println("Entrez le nouveau domaine : ");
-        String domaine = scanner.nextLine();
-
-        TheseUniversitaire these = new TheseUniversitaire(titre, auteur, dateDePublication, nombreDePages, universite, domaine);
-
-        TheseUniversitaireDAO.modifierTheseUniversitaire(id, these);
-    }
 }

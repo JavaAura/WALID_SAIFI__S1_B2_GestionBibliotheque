@@ -1,4 +1,7 @@
 package src.Métier;
+import src.DAO.LivreDAO;
+
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -19,6 +22,14 @@ public class Livre extends Document {
     public static void modifierLivre(int id) {
     }
 
+    public static void supprimerLivre(int id){
+        try {
+            LivreDAO.supprimerLivre(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Le livre avec l'ID " + id + " a été supprimé.");
+    }
 
     public String getIsbn() {
         return isbn;

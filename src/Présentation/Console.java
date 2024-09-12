@@ -32,13 +32,13 @@ public class Console {
 
             switch (choix) {
                 case 1:
-
+                           Document.ajouterDocument();
                     break;
                 case 2:
-
+                            Document.modifierDocument();
                     break;
                 case 3:
-
+                            Document.supprimerDocument();
                     break;
                 case 4:
 
@@ -69,39 +69,6 @@ public class Console {
                 default:
                     System.out.println("Choix invalide. Veuillez réessayer.");
             }
-        }
-    }
-
-    public static void ajouterDocument() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Quel type de document voulez-vous ajouter ?");
-        System.out.println("1- Livre");
-        System.out.println("2- Magazine");
-        System.out.println("3- Journal Scientifique");
-        System.out.println("4- Thèse Universitaire");
-        System.out.print("Votre choix: ");
-        int choix = scanner.nextInt();
-        scanner.nextLine();
-
-        switch (choix) {
-            case 1:
-                Livre livre = Livre.saisirLivre();
-                LivreDAO.ajouterLivre(livre);
-                break;
-            case 2:
-                Magazine magazine = Magazine.saisirMagazine();
-                MagazineDAO.ajouterMagazine(magazine);
-                break;
-            case 3:
-                JournalScientifique journal = JournalScientifique.saisirJournalScientifique();
-                JournalScientifiqueDAO.ajouterJournalScientifique(journal);
-                break;
-            case 4:
-                TheseUniversitaire these = TheseUniversitaire.saisirTheseUniversitaire();
-                TheseUniversitaireDAO.ajouterTheseUniversitaire(these);
-                break;
-            default:
-                System.out.println("Choix invalide.");
         }
     }
 

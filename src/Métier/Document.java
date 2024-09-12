@@ -1,5 +1,10 @@
 package src.Métier;
 
+import src.DAO.JournalScientifiqueDAO;
+import src.DAO.LivreDAO;
+import src.DAO.MagazineDAO;
+import src.DAO.TheseUniversitaireDAO;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -102,7 +107,7 @@ public abstract class Document {
         System.out.println("3- Journal Scientifique");
         System.out.println("4- Thèse Universitaire");
         int type = scanner.nextInt();
-        scanner.nextLine();  
+        scanner.nextLine();
 
         System.out.println("Entrez l'ID du document à modifier :");
         int id = scanner.nextInt();
@@ -124,4 +129,73 @@ public abstract class Document {
                 System.out.println("Type de document invalide.");
         }
     }
+
+
+    public static void ajouterDocument() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Quel type de document voulez-vous ajouter ?");
+        System.out.println("1- Livre");
+        System.out.println("2- Magazine");
+        System.out.println("3- Journal Scientifique");
+        System.out.println("4- Thèse Universitaire");
+        System.out.print("Votre choix: ");
+        int choix = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choix) {
+            case 1:
+                Livre livre = Livre.saisirLivre();
+                LivreDAO.ajouterLivre(livre);
+                break;
+            case 2:
+                Magazine magazine = Magazine.saisirMagazine();
+                MagazineDAO.ajouterMagazine(magazine);
+                break;
+            case 3:
+                JournalScientifique journal = JournalScientifique.saisirJournalScientifique();
+                JournalScientifiqueDAO.ajouterJournalScientifique(journal);
+                break;
+            case 4:
+                TheseUniversitaire these = TheseUniversitaire.saisirTheseUniversitaire();
+                TheseUniversitaireDAO.ajouterTheseUniversitaire(these);
+                break;
+            default:
+                System.out.println("Choix invalide.");
+        }
+    }
+
+
+    public static void supprimerDocument() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Quel type de document voulez-vous supprimer ?");
+        System.out.println("1- Livre");
+        System.out.println("2- Magazine");
+        System.out.println("3- Journal Scientifique");
+        System.out.println("4- Thèse Universitaire");
+        int type = scanner.nextInt();
+        scanner.nextLine();  // Consomme la ligne restante
+
+        System.out.println("Entrez l'ID du document à supprimer :");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (type) {
+            case 1:
+                Livre.supprimerLivre(id);
+                break;
+            case 2:
+                Magazine.supprimerMagazine(id);
+                break;
+            case 3:
+                JournalScientifique.supprimerJournalScientifique(id);
+                break;
+            case 4:
+               TheseUniversitaire.supprimerTheseUniversitaireT(id);
+                break;
+            default:
+                System.out.println("Type de document invalide.");
+        }
+    }
+
+
 }

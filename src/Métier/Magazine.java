@@ -73,6 +73,11 @@ public class Magazine extends Document{
     }
 
 
+
+    public static void supprimerMagazine(int id) {
+        MagazineDAO.supprimerMagazine(id);
+        System.out.println("Le magazine avec l'ID " + id + " a été supprimé.");
+    }
   
 
 }

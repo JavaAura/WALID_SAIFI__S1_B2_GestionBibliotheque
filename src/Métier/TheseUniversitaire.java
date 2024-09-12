@@ -64,6 +64,9 @@ public class TheseUniversitaire extends Document {
         TheseUniversitaireDAO.modifierTheseUniversitaire(id, these);
     }
 
+    public static void supprimerTheseUniversitaire(int id) {
+    }
+
     @Override
         public void afficherDetails() {
             System.out.println("Thèse Universitaire - Université: " + universite
@@ -91,5 +94,11 @@ public class TheseUniversitaire extends Document {
         public void setDomaine(String domaine) {
             this.domaine = domaine;
         }
+
+
+    public static void supprimerTheseUniversitaireT(int id) {
+        TheseUniversitaireDAO.supprimerTheseUniversitaire(id);
+        System.out.println("La thèse universitaire avec l'ID " + id + " a été supprimée.");
+    }
 }
 

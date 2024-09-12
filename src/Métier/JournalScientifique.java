@@ -1,5 +1,6 @@
 package src.Métier;
 import src.DAO.JournalScientifiqueDAO;
+import src.DAO.TheseUniversitaireDAO;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -69,5 +70,17 @@ public class JournalScientifique extends Document {
         public void afficherDetails() {
             System.out.println("Journal Scientifique - Domaine: " + domaineRecherche + ", Titre: " + titre + ", Auteur: " + auteur);
         }
+
+    public static void supprimerJournalScientifique(int id) {
+        JournalScientifiqueDAO.supprimerJournalScientifique(id);
+        System.out.println("Le journal scientifique avec l'ID " + id + " a été supprimé.");
+    }
+
+
+    public static void supprimerTheseUniversitaire(int id) {
+        TheseUniversitaireDAO.supprimerTheseUniversitaire(id);
+        System.out.println("La thèse universitaire avec l'ID " + id + " a été supprimée.");
+    }
+
     }
 
