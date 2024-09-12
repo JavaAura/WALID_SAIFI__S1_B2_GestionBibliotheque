@@ -41,7 +41,39 @@ public class main {
 
 
 
-        LivreDAO.supprimerLivre(1);
+        Magazine m1 = new Magazine(
+                "National Geographic",
+                "National Geographic Society",
+                LocalDate.of(2024, 8, 1),
+                120,
+                123);
+
+        // Exemple 2
+        Magazine m2 = new Magazine(
+                "Time",
+                "Time Inc.",
+                LocalDate.of(2024, 7, 15),
+                98,
+                456);
+
+
+        Magazine m3 = new Magazine(
+                "Vogue",
+                "Conde Nast",
+                LocalDate.of(2024, 9, 1),
+                150,
+                789);
+
+        Magazine m4 = new Magazine(
+                "TechCrunch",
+                "TechCrunch",
+                LocalDate.of(2024, 6, 5),
+                80,
+                -1);
+
+
+
+       MagazineDAO.ajouterMagazine(m3);
     }
 
 
