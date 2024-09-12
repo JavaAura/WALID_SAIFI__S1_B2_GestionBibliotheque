@@ -32,8 +32,8 @@ public class Etudiant extends Utilisateur {
 
     }
 
-    public Etudiant saisirEtudiant() {
-        
+    public static Etudiant saisirEtudiant() {
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Entrez le nom de l'étudiant : ");
         String nom = scanner.nextLine();
@@ -49,4 +49,6 @@ public class Etudiant extends Utilisateur {
         return  etudiant;
 
     }
+
+
 }

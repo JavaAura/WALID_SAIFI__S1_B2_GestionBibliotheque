@@ -1,5 +1,10 @@
 package src.Métier;
 
+import src.DAO.EtudiantDAO;
+import src.DAO.ProfesseurDAO;
+
+import java.util.Scanner;
+
 public abstract class Utilisateur {
     protected  int id;
     protected String nom;
@@ -41,4 +46,32 @@ public abstract class Utilisateur {
     }
 
     public abstract void afficherDetails();
+
+
+    public static void ajouterUtilisateur() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Quel type d'utilisateur voulez-vous ajouter ?");
+        System.out.println("1- Étudiant");
+        System.out.println("2- Professeur");
+        System.out.print("Votre choix: ");
+        int choix = scanner.nextInt();
+        scanner.nextLine(); // Consommer la nouvelle ligne
+
+        switch (choix) {
+            case 1:
+
+                Etudiant etudiant = Etudiant.saisirEtudiant();
+                EtudiantDAO.ajouterEtudiant(etudiant);
+                break;
+
+            case 2:
+                Professeur professeur = Professeur.saisirProfesseur();
+                ProfesseurDAO.ajouterProfesseur(professeur);
+                break;
+
+            default:
+                System.out.println("Choix invalide.");
+        }
+    }
+
 }

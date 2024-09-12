@@ -1,5 +1,7 @@
 package src.Métier;
 
+import java.util.Scanner;
+
 public class Professeur extends Utilisateur {
     private String specialite;
 
@@ -20,4 +22,23 @@ public class Professeur extends Utilisateur {
     public void afficherDetails() {
 
     }
+
+
+    public static Professeur saisirProfesseur() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ajout d'un nouveau professeur :");
+        System.out.print("Nom : ");
+        String nom = scanner.nextLine();
+        System.out.print("Prénom : ");
+        String prenom = scanner.nextLine();
+        System.out.print("Département : ");
+        String specialite = scanner.nextLine();
+
+        Professeur professeur = new Professeur(nom, prenom, specialite);
+
+        return  professeur;
+
+    }
+
 }
