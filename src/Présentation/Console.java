@@ -103,45 +103,11 @@ public class Console {
             default:
                 System.out.println("Choix invalide.");
         }
-
-
-
-
     }
 
 
 
-    public static void modifierDocument() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Quel type de document voulez-vous modifier ?");
-        System.out.println("1- Livre");
-        System.out.println("2- Magazine");
-        System.out.println("3- Journal Scientifique");
-        System.out.println("4- Thèse Universitaire");
-        int type = scanner.nextInt();
-        scanner.nextLine();  // Consomme la ligne restante
 
-        System.out.println("Entrez l'ID du document à modifier :");
-        int id = scanner.nextInt();
-        scanner.nextLine();
-
-        switch (type) {
-            case 1:
-                Livre.modifierLivre(id);
-                break;
-            case 2:
-                Magazine.modifierMagazine(id);
-                break;
-            case 3:
-                JournalScientifique.modifierJournalScientifique(id);
-                break;
-            case 4:
-                TheseUniversitaire.modifierTheseUniversitaire(id);
-                break;
-            default:
-                System.out.println("Type de document invalide.");
-        }
-    }
 
 
 
