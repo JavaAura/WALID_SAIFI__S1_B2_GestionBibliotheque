@@ -1,5 +1,6 @@
 package src.Métier;
 
+import src.DAO.EtudiantDAO;
 import src.DAO.ProfesseurDAO;
 
 import java.util.Scanner;
@@ -7,8 +8,8 @@ import java.util.Scanner;
 public class Professeur extends Utilisateur {
     private String specialite;
 
-    public Professeur(String nom, String prenom,String specialite) {
-        super(nom,prenom);
+    public Professeur(String nom, String prenom, String specialite) {
+        super(nom, prenom);
         this.specialite = specialite;
     }
 
@@ -39,7 +40,7 @@ public class Professeur extends Utilisateur {
 
         Professeur professeur = new Professeur(nom, prenom, specialite);
 
-        return  professeur;
+        return professeur;
 
     }
 
@@ -62,4 +63,31 @@ public class Professeur extends Utilisateur {
     }
 
 
+    public static void supprimerUtilisateur() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Quel type d'utilisateur voulez-vous supprimer ?");
+        System.out.println("1- Étudiant");
+        System.out.println("2- Professeur");
+        System.out.print("Votre choix: ");
+        int choix = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choix) {
+            case 1:
+                System.out.print("Entrez le matricule de l'étudiant à supprimer: ");
+                String matricule = scanner.nextLine();
+                EtudiantDAO.supprimerEtudiant(matricule);
+                break;
+            case 2:
+                System.out.print("Entrez l'ID du professeur à supprimer: ");
+                int id = scanner.nextInt();
+                ProfesseurDAO.supprimerProfesseur(id);
+                break;
+            default:
+                System.out.println("Choix invalide. Veuillez réessayer.");
+        }
+
+
+    }
 }
