@@ -7,16 +7,19 @@ public class TheseUniversitaire extends Document {
         private String universite;
         private String domaine;
 
-
-
-    public TheseUniversitaire(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String etat) {
-        super(titre, auteur, dateDePublication, nombreDePages, etat);
+    public TheseUniversitaire(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String etat, boolean reserve, String universite, String domaine) {
+        super(titre, auteur, dateDePublication, nombreDePages, etat, reserve);
         this.universite = universite;
         this.domaine = domaine;
     }
 
+    public TheseUniversitaire(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String universite, String domaine) {
+        super(titre, auteur, dateDePublication, nombreDePages);
+        this.universite = universite;
+        this.domaine = domaine;
+    }
 
-        @Override
+    @Override
         public void afficherDetails() {
             System.out.println("Thèse Universitaire - Université: " + universite
                     + ", Domaine: " + domaine

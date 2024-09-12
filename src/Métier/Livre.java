@@ -10,6 +10,13 @@ public class Livre extends Document implements Empruntable, Réservable {
     }
 
 
+    public Livre(String titre, String auteur, LocalDate dateDePublication, int nombreDePages,String isbn) {
+        super(titre, auteur, dateDePublication, nombreDePages);
+        this.isbn = isbn;
+    }
+
+
+
 
 
 

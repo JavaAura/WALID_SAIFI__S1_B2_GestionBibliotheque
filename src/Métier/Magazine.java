@@ -5,8 +5,13 @@ public class Magazine extends Document implements Empruntable {
     private int numéro;
 
 
-    public Magazine(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, int numéro, String etat) {
-        super(titre, auteur, dateDePublication, nombreDePages, etat);
+    public Magazine(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String etat, boolean reserve, int numéro) {
+        super(titre, auteur, dateDePublication, nombreDePages, etat, reserve);
+        this.numéro = numéro;
+    }
+
+    public Magazine(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, int numéro) {
+        super(titre, auteur, dateDePublication, nombreDePages);
         this.numéro = numéro;
     }
 

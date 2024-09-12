@@ -21,6 +21,14 @@ public abstract class Document {
         this.etat = etat;
         this.reserve = reserve;
     }
+    public Document(String titre, String auteur, LocalDate dateDePublication, int nombreDePages) {
+
+        this.titre = titre;
+        this.auteur = auteur;
+        this.dateDePublication = dateDePublication;
+        this.nombreDePages = nombreDePages;
+    }
+
 
 
     public abstract void afficherDetails();
