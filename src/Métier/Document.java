@@ -9,15 +9,17 @@ public abstract class Document {
     protected LocalDate dateDePublication;
     protected int nombreDePages;
     protected String etat;
+    protected  boolean reserve;
 
 
-    public Document(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String etat) {
+    public Document(String titre, String auteur, LocalDate dateDePublication, int nombreDePages, String etat,boolean reserve) {
 
         this.titre = titre;
         this.auteur = auteur;
         this.dateDePublication = dateDePublication;
         this.nombreDePages = nombreDePages;
         this.etat = etat;
+        this.reserve = reserve;
     }
 
 

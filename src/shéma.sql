@@ -1,4 +1,4 @@
--- Table Document
+
 CREATE TABLE Document (
     id SERIAL PRIMARY KEY,
     titre VARCHAR(255) NOT NULL,
