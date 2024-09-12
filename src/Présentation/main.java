@@ -110,7 +110,7 @@ public class main {
                 "Informatique"
         );
 
-    DocumentDAO.emprunterDocument(12);
+    DocumentDAO.reserverDocument(9);
 
 
     }

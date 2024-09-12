@@ -50,4 +50,22 @@ public class DocumentDAO {
             System.err.println("Erreur lors de la réservation du document : " + e.getMessage());
         }
     }
+    public static void retournerDocument(int id) {
+        String sql = "UPDATE Document SET etatDocument = 'disponible', reserve = FALSE WHERE id = ? AND etatDocument = 'emprunte'";
+
+        try (Connection conn = dbConnection.connect();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            int rowsAffected = stmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Document retourné avec succès.");
+            } else {
+                System.out.println("Le document n'est pas emprunté ou n'existe pas.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Erreur lors du retour du document : " + e.getMessage());
+        }
+    }
 }
