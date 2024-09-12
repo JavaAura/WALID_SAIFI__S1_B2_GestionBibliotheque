@@ -1,4 +1,4 @@
-package Utilitaire;
+package src.Utilitaire;
 
 public class InputValidator {
 
@@ -15,7 +15,5 @@ public class InputValidator {
         }
     }
 
-    public static boolean validateDate(String dateStr) {
-        return DateUtils.parseDate(dateStr) != null;
-    }
+
 }
