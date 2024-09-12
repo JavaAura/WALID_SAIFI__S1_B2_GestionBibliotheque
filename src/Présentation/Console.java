@@ -68,4 +68,11 @@ public class Console {
         }
     }
 
+    public  void  ajouterDocumentConsole(){
+
+        Scanner scanner = new Scanner(System.in);
+        
+
+    }
+
 }
