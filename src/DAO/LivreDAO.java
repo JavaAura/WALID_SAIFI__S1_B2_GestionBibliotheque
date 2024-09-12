@@ -35,11 +35,10 @@ public class LivreDAO {
         } catch (SQLException e) {
 
             System.err.println("Erreur lors de l'ajout du livre : " + e.getMessage());
-            throw e;
-        } catch (IllegalArgumentException e) {
-
 
         }
+
+
     }
 
 
@@ -63,13 +62,9 @@ public class LivreDAO {
             System.out.println("Livre mis à jour avec succès.");
 
         } catch (SQLException e) {
-            // Gestion des erreurs SQL
+
             System.err.println("Erreur lors de la modification du livre : " + e.getMessage());
-            // Vous pouvez aussi enregistrer l'erreur dans un fichier de log si nécessaire
-        } catch (IllegalArgumentException e) {
-            // Gestion des erreurs de validation
-            System.err.println("Erreur de validation : " + e.getMessage());
-            // Vous pouvez aussi enregistrer l'erreur dans un fichier de log si nécessaire
+
         }
     }
 
