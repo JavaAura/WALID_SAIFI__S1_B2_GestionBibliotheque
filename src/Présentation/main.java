@@ -31,8 +31,8 @@ public class main {
                 LocalDate.of(1947, 6, 10),
                 307,
                 "9782070363027");
-        LivreDAO.afficherTousLesLivres();
-        MagazineDAO.afficherTousLesMagazines();
+       // LivreDAO.afficherTousLesLivres();
+     //   MagazineDAO.afficherTousLesMagazines();
         Livre l4 = new Livre(
                 "Moby Dick",
                 "Herman Melville",
@@ -73,7 +73,23 @@ public class main {
                 -1);
 
 
+        JournalScientifique journal1 = new JournalScientifique(
+                "Journal of Advanced Research",
+                "Dr. Alice Smith",
+                LocalDate.of(2023, 5, 15),
+                120,
+                "Physique Quantique"
+        );
 
+        JournalScientifique journal2 = new JournalScientifique(
+                "Journal of Biological Studies",
+                "Dr. John Doe",
+                LocalDate.of(2022, 11, 8),
+                150,
+                "Biologie Moléculaire"
+        );
+
+        JournalScientifiqueDAO.ajouterJournalScientifique(journal2);
 
     }
 

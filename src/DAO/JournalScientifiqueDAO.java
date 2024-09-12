@@ -5,7 +5,7 @@ import src.Métier.JournalScientifique;
 
 public class JournalScientifiqueDAO {
 
- 
+
     public static void ajouterJournalScientifique(JournalScientifique journal) {
         String sql = "INSERT INTO JournalScientifique (titre, auteur, date_de_publication, nombre_de_pages, domaine_recherche) VALUES (?, ?, ?, ?, ?)";
 
