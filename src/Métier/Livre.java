@@ -16,10 +16,8 @@ public class Livre extends Document {
         this.isbn = isbn;
     }
 
-
-
-
-
+    public static void modifierLivre(int id) {
+    }
 
 
     public String getIsbn() {
