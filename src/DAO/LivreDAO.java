@@ -1,8 +1,11 @@
 package src.DAO;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import src.Métier.*;
 
 public class LivreDAO {
@@ -104,6 +107,29 @@ public class LivreDAO {
             System.err.println("Erreur lors de l'affichage des livres : " + e.getMessage());
         }
         System.out.println("------------------------------------------------------------------------------------------------------------------------");
+    }
+
+
+
+    public static void modifierLivre(int id) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Modification du livre avec ID: " + id);
+        System.out.println("Entrez le nouveau titre : ");
+        String titre = scanner.nextLine();
+        System.out.println("Entrez le nouvel auteur : ");
+        String auteur = scanner.nextLine();
+        System.out.println("Entrez la nouvelle date de publication (format: yyyy-mm-dd) : ");
+        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        System.out.println("Entrez le nouveau nombre de pages : ");
+        int nombreDePages = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Entrez le nouvel ISBN : ");
+        String isbn = scanner.nextLine();
+
+        Livre livre = new Livre(titre, auteur, dateDePublication, nombreDePages, isbn);
+
+        LivreDAO.modifierLivre(id, livre);
     }
 
 
