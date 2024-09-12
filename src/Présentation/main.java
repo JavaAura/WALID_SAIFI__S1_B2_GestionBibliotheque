@@ -82,14 +82,14 @@ public class main {
         );
 
         JournalScientifique journal2 = new JournalScientifique(
-                "Journal of Biological Studies",
+                "Youcode",
                 "Dr. John Doe",
                 LocalDate.of(2022, 11, 8),
                 150,
                 "Biologie Moléculaire"
         );
 
-        JournalScientifiqueDAO.ajouterJournalScientifique(journal2);
+        JournalScientifiqueDAO.afficherTousLesJournauxScientifiques();
 
     }
 

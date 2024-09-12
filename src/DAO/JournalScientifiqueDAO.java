@@ -73,6 +73,7 @@ public class JournalScientifiqueDAO {
 
 
     public static void afficherTousLesJournauxScientifiques() {
+        System.out.println("--------------------------------------------Liste des JournauxScientifiques----------------------------------------- ");
         String sql = "SELECT * FROM JournalScientifique";
 
         try (Connection conn = dbConnection.connect();
@@ -95,5 +96,6 @@ public class JournalScientifiqueDAO {
         } catch (SQLException e) {
             System.err.println("Erreur lors de l'affichage des Journaux Scientifiques : " + e.getMessage());
         }
+        System.out.println("--------------------------------------------------------------------------------------------------------------------- ");
     }
 }
