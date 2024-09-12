@@ -1,5 +1,7 @@
 package src.Métier;
 
+import java.util.Scanner;
+
 public class Etudiant extends Utilisateur {
     private String matricule;
 
@@ -27,6 +29,24 @@ public class Etudiant extends Utilisateur {
      */
     @Override
     public void afficherDetails() {
+
+    }
+
+    public Etudiant saisirEtudiant() {
+        
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Entrez le nom de l'étudiant : ");
+        String nom = scanner.nextLine();
+
+        System.out.print("Entrez le prénom de l'étudiant : ");
+        String prenom = scanner.nextLine();
+
+        System.out.print("Entrez le matricule de l'étudiant : ");
+        String matricule = scanner.nextLine();
+
+        Etudiant etudiant = new Etudiant(nom, prenom, matricule);
+
+        return  etudiant;
 
     }
 }

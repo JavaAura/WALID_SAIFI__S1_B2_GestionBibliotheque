@@ -110,7 +110,7 @@ public class main {
                 "Informatique"
         );
 
-  //  DocumentDAO.reserverDocument(9);
+    Console.afficheMenu();
 
 
     }
