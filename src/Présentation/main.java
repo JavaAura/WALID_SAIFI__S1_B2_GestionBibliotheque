@@ -110,7 +110,7 @@ public class main {
                 "Informatique"
         );
 
-        TheseUniversitaireDAO.afficherToutesLesThesesUniversitaires();
+    DocumentDAO.emprunterDocument(12);
 
 
     }
