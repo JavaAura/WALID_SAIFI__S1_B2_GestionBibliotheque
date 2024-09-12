@@ -89,7 +89,29 @@ public class main {
                 "Biologie Moléculaire"
         );
 
-        JournalScientifiqueDAO.afficherTousLesJournauxScientifiques();
+
+
+
+        TheseUniversitaire these1 = new TheseUniversitaire(
+                "Machine Learning Applications",
+                "Dr. WALID SAIFI",
+                LocalDate.of(2022, 5, 15),
+                200,
+                "Université de Paris",
+                "Informatique"
+        );
+
+        TheseUniversitaire these2 = new TheseUniversitaire(
+                "Deep Learning Techniques",
+                "Dr. Alice Johnson",
+                LocalDate.of(2023, 1, 10),
+                220,
+                "Université de Paris",
+                "Informatique"
+        );
+
+        TheseUniversitaireDAO.afficherToutesLesThesesUniversitaires();
+
 
     }
 
