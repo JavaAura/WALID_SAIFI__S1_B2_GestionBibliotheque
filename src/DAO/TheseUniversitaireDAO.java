@@ -40,8 +40,7 @@ public class TheseUniversitaireDAO {
             stmt.setInt(4, these.getNombreDePages());
             stmt.setString(5, these.getUniversite());
             stmt.setString(6, these.getDomaine());
-
-            stmt.setInt(9, id);
+            stmt.setInt(7, id);
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
