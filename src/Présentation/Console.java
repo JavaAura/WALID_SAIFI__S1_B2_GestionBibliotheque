@@ -46,7 +46,7 @@ public class Console {
                             Document.supprimerDocument();
                     break;
                 case 4:
-                    DocumentDAO.afficherToutDocument();
+                           DocumentDAO.afficherToutDocument();
                     break;
                 case 5:
 
@@ -55,16 +55,16 @@ public class Console {
 
                     break;
                 case 7:
-
+                                Utilisateur.ajouterUtilisateur();
                     break;
                 case 8:
-
+                                Utilisateur.modifierUtilisateur();
                     break;
                 case 9:
-
+                                Utilisateur.supprimerUtilisateur();
                     break;
                 case 10:
-
+                               UtilisateurDAO.afficherToutUtilisateur();
                     break;
                 case 11:
 

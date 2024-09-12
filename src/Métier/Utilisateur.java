@@ -115,4 +115,31 @@ public abstract class Utilisateur {
     }
 
 
+    public static void supprimerUtilisateur() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Quel type d'utilisateur voulez-vous supprimer ?");
+        System.out.println("1- Étudiant");
+        System.out.println("2- Professeur");
+        System.out.print("Votre choix: ");
+        int choix = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choix) {
+            case 1:
+                System.out.print("Entrez le matricule de l'étudiant à supprimer: ");
+                String matricule = scanner.nextLine();
+                EtudiantDAO.supprimerEtudiant(matricule);
+                break;
+            case 2:
+                System.out.print("Entrez l'ID du professeur à supprimer: ");
+                int id = scanner.nextInt();
+                ProfesseurDAO.supprimerProfesseur(id);
+                break;
+            default:
+                System.out.println("Choix invalide. Veuillez réessayer.");
+        }
+
+
+
 }
