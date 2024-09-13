@@ -50,25 +50,25 @@ public class Console {
                             DocumentDAO.afficherToutDocument();
                     break;
                 case 5:
-                          
+                            Document.demanderEmpruntDocument();
                     break;
                 case 6:
-
+                            Document.demanderReservationDocument();
                     break;
                 case 7:
-
+                            Document.demanderRetourDocument();
                     break;
                 case 8:
-                                  Utilisateur.ajouterUtilisateur();
+                            Utilisateur.ajouterUtilisateur();
                     break;
                 case 9:
-                                  Utilisateur.modifierUtilisateur();
+                            Utilisateur.modifierUtilisateur();
                     break;
                 case 10:
-                                  Utilisateur.supprimerUtilisateur();
+                            Utilisateur.supprimerUtilisateur();
                     break;
                 case 11:
-                                 UtilisateurDAO.afficherToutUtilisateur();
+                            UtilisateurDAO.afficherToutUtilisateur();
                     break;
                 case 12:
 

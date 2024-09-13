@@ -1,9 +1,6 @@
 package src.Métier;
 
-import src.DAO.JournalScientifiqueDAO;
-import src.DAO.LivreDAO;
-import src.DAO.MagazineDAO;
-import src.DAO.TheseUniversitaireDAO;
+import src.DAO.*;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -194,6 +191,54 @@ public abstract class Document {
                 break;
             default:
                 System.out.println("Type de document invalide.");
+        }
+    }
+
+
+    public static void demanderEmpruntDocument() {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Veuillez saisir l'ID du document à emprunter : ");
+            int idDocument = scanner.nextInt();
+
+            DocumentDAO.emprunterDocument(idDocument);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Erreur : " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Erreur inattendue : " + e.getMessage());
+        }
+    }
+
+    public static void demanderReservationDocument() {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Veuillez saisir l'ID du document à réserver : ");
+            int idDocument = scanner.nextInt();
+
+            DocumentDAO.reserverDocument(idDocument);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Erreur : " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Erreur inattendue : " + e.getMessage());
+        }
+    }
+
+
+    public static void demanderRetourDocument() {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Veuillez saisir l'ID du document à retourner : ");
+            int idDocument = scanner.nextInt();
+
+
+            DocumentDAO.retournerDocument(idDocument);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Erreur : " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Erreur inattendue : " + e.getMessage());
         }
     }
 
