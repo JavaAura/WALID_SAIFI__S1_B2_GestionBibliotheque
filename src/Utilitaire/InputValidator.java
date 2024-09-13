@@ -1,36 +1,29 @@
 package src.Utilitaire;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class InputValidator {
 
     private static Scanner scanner = new Scanner(System.in);
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 
-    public static String validateString(String input, String prompt) {
-        if (input != null && !input.trim().isEmpty()) {
-            return input;
+
+    public static int validateInt(int tmp) {
+
+        if (tmp != Integer.MIN_VALUE) {
+            return tmp;
         }
-        while (input == null || input.trim().isEmpty()) {
-            System.out.print(prompt);
-            input = scanner.nextLine();
-            if (input.trim().isEmpty()) {
-                System.out.println("Entrée invalide. Veuillez entrer une chaîne non vide.");
-            }
-        }
-        return input;
-    }
 
-
-    public static int validateInt(Integer input, String prompt) {
-        if (input != null) {
-            return input;
-        }
         boolean isValid = false;
+        int input = tmp;
+
+
         while (!isValid) {
-            System.out.print(prompt);
+            System.out.print("Entrez un nombre entier valide: ");
             if (scanner.hasNextInt()) {
                 input = scanner.nextInt();
                 isValid = true;
@@ -39,27 +32,61 @@ public class InputValidator {
                 scanner.next();
             }
         }
+
         return input;
     }
 
 
-    public static LocalDate validateDate(LocalDate input, String prompt) {
-        if (input != null) {
-            return input; 
+
+
+
+    public static String validateString(String input) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        if (input != null && !input.trim().isEmpty()) {
+            return input;
         }
-        boolean isValid = false;
-        LocalDate date = null;
-        while (!isValid) {
-            System.out.print(prompt);
-            String dateInput = scanner.nextLine();
+
+
+        System.out.println("Veuillez saisir une chaîne non vide :");
+        while (true) {
+            input = scanner.nextLine().trim();
+            if (!input.isEmpty()) {
+                return input;
+            }
+            System.out.println("La chaîne saisie est vide. Veuillez réessayer :");
+        }
+    }
+
+
+
+
+
+    public static LocalDate validateDate(LocalDate input) {
+
+        if (input != null) {
+            return input;
+        }
+
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Veuillez saisir une date au format 'yyyy-MM-dd' :");
+
+        while (true) {
+            String dateString = scanner.nextLine().trim();
             try {
-                date = LocalDate.parse(dateInput);
-                isValid = true;
+                LocalDate parsedDate = LocalDate.parse(dateString, DATE_FORMATTER);
+                return parsedDate;
             } catch (DateTimeParseException e) {
-                System.out.println("Entrée invalide. Veuillez entrer une date au format (yyyy-mm-dd).");
+                System.out.println("La date saisie est invalide ou ne respecte pas le format 'yyyy-MM-dd'. Veuillez réessayer.");
+                System.out.println("Erreur: " + e.getMessage());
             }
         }
-        return date;
     }
+
+
+
+
 
 }

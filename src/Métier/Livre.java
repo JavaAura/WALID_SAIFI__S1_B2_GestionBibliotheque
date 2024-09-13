@@ -1,5 +1,6 @@
 package src.Métier;
 import src.DAO.LivreDAO;
+import src.Utilitaire.InputValidator;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -46,10 +47,13 @@ public class Livre extends Document {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Titre: ");
         String titre = scanner.nextLine();
+        titre = InputValidator.validateString(titre);
         System.out.print("Auteur: ");
         String auteur = scanner.nextLine();
+        auteur = InputValidator.validateString(auteur);
         System.out.print("Date de publication (yyyy-mm-dd): ");
         LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        dateDePublication = InputValidator.validateDate(dateDePublication);
         System.out.print("Nombre de pages: ");
         int nombreDePages = scanner.nextInt();
         scanner.nextLine();
