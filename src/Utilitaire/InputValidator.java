@@ -11,7 +11,6 @@ public class InputValidator {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 
-
     public static int validateInt(int tmp) {
 
         if (tmp != Integer.MIN_VALUE) {
@@ -40,35 +39,9 @@ public class InputValidator {
 
 
 
-    public static String validateString(String input) {
-        Scanner scanner = new Scanner(System.in);
 
 
-        if (input != null && !input.trim().isEmpty()) {
-            return input;
-        }
-
-
-        System.out.println("Veuillez saisir une chaîne non vide :");
-        while (true) {
-            input = scanner.nextLine().trim();
-            if (!input.isEmpty()) {
-                return input;
-            }
-            System.out.println("La chaîne saisie est vide. Veuillez réessayer :");
-        }
-    }
-
-
-
-
-
-    public static LocalDate validateDate(LocalDate input) {
-
-        if (input != null) {
-            return input;
-        }
-
+    public static LocalDate validateDate(){
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Veuillez saisir une date au format 'yyyy-MM-dd' :");
@@ -79,9 +52,22 @@ public class InputValidator {
                 LocalDate parsedDate = LocalDate.parse(dateString, DATE_FORMATTER);
                 return parsedDate;
             } catch (DateTimeParseException e) {
-                System.out.println("La date saisie est invalide ou ne respecte pas le format 'yyyy-MM-dd'. Veuillez réessayer.");
-                System.out.println("Erreur: " + e.getMessage());
+
+                System.out.println("Erreur : La date saisie est invalide ou ne respecte pas le format 'yyyy-MM-dd'.");
+                System.out.println("Exemple de format valide : 2024-09-13");
+                System.out.println("Veuillez réessayer :");
             }
+        }
+    }
+
+
+
+    public boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
@@ -89,4 +75,11 @@ public class InputValidator {
 
 
 
+
 }
+
+
+
+
+
+

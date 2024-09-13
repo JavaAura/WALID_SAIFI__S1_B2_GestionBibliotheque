@@ -47,20 +47,20 @@ public class Livre extends Document {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Titre: ");
         String titre = scanner.nextLine();
-        titre = InputValidator.validateString(titre);
+        String titreValider = InputValidator.validateString(titre);
         System.out.print("Auteur: ");
         String auteur = scanner.nextLine();
-        auteur = InputValidator.validateString(auteur);
-        System.out.print("Date de publication (yyyy-mm-dd): ");
-        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
-        dateDePublication = InputValidator.validateDate(dateDePublication);
+        String  auteurValider = InputValidator.validateString(auteur);
+        LocalDate  dateValider = InputValidator.validateDate();
         System.out.print("Nombre de pages: ");
         int nombreDePages = scanner.nextInt();
+        int nombreDePagesValider = InputValidator.validateInt(nombreDePages);
         scanner.nextLine();
         System.out.print("ISBN: ");
         String isbn = scanner.nextLine();
+        String isbnValide = InputValidator.validateString(isbn);
 
-        return new Livre(titre, auteur, dateDePublication, nombreDePages, isbn);
+        return new Livre(titreValider, auteurValider, dateValider, nombreDePagesValider, isbnValide);
     }
 
 
