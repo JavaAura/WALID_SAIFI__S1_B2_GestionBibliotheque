@@ -170,7 +170,7 @@ public abstract class Document {
         System.out.println("3- Journal Scientifique");
         System.out.println("4- Thèse Universitaire");
         int type = scanner.nextInt();
-        scanner.nextLine();  
+        scanner.nextLine();
 
         System.out.println("Entrez l'ID du document à supprimer :");
         int id = scanner.nextInt();
