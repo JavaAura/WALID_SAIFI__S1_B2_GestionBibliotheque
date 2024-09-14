@@ -76,9 +76,9 @@ public class Livre extends Document {
         scanner.nextLine();
         System.out.print("ISBN: ");
         String isbn = scanner.nextLine();
-        String isbnValide = InputValidator.validateString(isbn);
 
-        return new Livre(titreValider, auteurValider, dateValider, nombreDePagesValider, isbnValide);
+
+        return new Livre(titreValider, auteurValider, dateValider, nombreDePagesValider, isbn);
     }
 
 

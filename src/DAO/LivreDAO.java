@@ -1,10 +1,6 @@
 package src.DAO;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 import src.Métier.*;
 
@@ -58,7 +54,7 @@ public class LivreDAO {
             stmt.setDate(3, Date.valueOf(livre.getDateDePublication()));
             stmt.setInt(4, livre.getNombreDePages());
             stmt.setString(5, livre.getIsbn());
-            stmt.setInt(6, id); // Le paramètre id doit être le dernier
+            stmt.setInt(6, id);
 
             // Exécution de la mise à jour
             stmt.executeUpdate();
