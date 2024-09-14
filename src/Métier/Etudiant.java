@@ -1,6 +1,7 @@
 package src.Métier;
 
 import src.DAO.EtudiantDAO;
+import src.Utilitaire.InputValidator;
 
 import java.util.Scanner;
 
@@ -39,36 +40,21 @@ public class Etudiant extends Utilisateur {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Entrez le nom de l'étudiant : ");
         String nom = scanner.nextLine();
+        String nomValider = InputValidator.validateString(nom);
 
         System.out.print("Entrez le prénom de l'étudiant : ");
         String prenom = scanner.nextLine();
-
+        String prenomValider  = InputValidator.validateString(prenom);
         System.out.print("Entrez le matricule de l'étudiant : ");
         String matricule = scanner.nextLine();
 
-        Etudiant etudiant = new Etudiant(nom, prenom, matricule);
+
+        Etudiant etudiant = new Etudiant(nomValider, prenomValider, matricule);
 
         return  etudiant;
 
     }
-
-
-
-    public static void modifierEtudiant() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Entrez le matricule de l'étudiant à modifier: ");
-        String matricule = scanner.nextLine();
-
-        Etudiant etudiant = EtudiantDAO.obtenirEtudiant(matricule);
-        if (etudiant != null) {
-            System.out.println("Saisissez les nouvelles informations pour cet étudiant.");
-            etudiant = saisirEtudiant();
-            EtudiantDAO.mettreAJourEtudiant(etudiant, matricule);
-            System.out.println("Étudiant modifié avec succès.");
-        } else {
-            System.out.println("Étudiant non trouvé.");
-        }
-    }
+    
 
 
 }

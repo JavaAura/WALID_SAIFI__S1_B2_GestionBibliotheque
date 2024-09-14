@@ -72,7 +72,7 @@ public class TheseUniversitaire extends Document {
 
         TheseUniversitaireDAO.modifierTheseUniversitaire(id, these);
     }
-    
+
 
     @Override
         public void afficherDetails() {
