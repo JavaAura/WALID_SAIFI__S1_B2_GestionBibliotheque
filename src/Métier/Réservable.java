@@ -1,4 +1,5 @@
 package src.Métier;
 
-public class Réservable {
+public interface Réservable {
+
 }

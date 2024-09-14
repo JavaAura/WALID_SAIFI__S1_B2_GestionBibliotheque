@@ -1,15 +1,13 @@
 package src.Métier;
 
-import src.Métier.Document;
-
 import java.util.*;
-public class Bibliotheque {
+public class bibliotheque implements  Empruntable{
 
     private List<Document> documents;
 
     private Map<String, Document> documentMap = new HashMap<>();
 
-    public Bibliotheque(){
+    public bibliotheque(){
 
         this.documents = new ArrayList();
 
