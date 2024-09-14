@@ -1,1 +1,15 @@
- 
+# Ignorer les fichiers de configuration de l'environnement
+.idea/
+.project
+.settings/
+.classpath
+
+# Ignorer les fichiers de la base de données
+*.sql
+
+# Ignorer les fichiers temporaires
+*.swp
+.DS_Store
+
+# Ignorer les fichiers spécifiques à PostgreSQL
+pgdata/
