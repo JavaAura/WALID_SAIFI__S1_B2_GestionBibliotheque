@@ -115,7 +115,7 @@ public class JournalScientifiqueDAO {
         LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
         System.out.println("Entrez le nouveau nombre de pages : ");
         int nombreDePages = scanner.nextInt();
-        scanner.nextLine();  // Consomme la ligne restante
+        scanner.nextLine();  
         System.out.println("Entrez le nouveau domaine de recherche : ");
         String domaineRecherche = scanner.nextLine();
 

@@ -1,5 +1,6 @@
 package src.Métier;
 import src.DAO.MagazineDAO;
+import src.Utilitaire.InputValidator;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -22,37 +23,22 @@ public class Magazine extends Document{
         Scanner scanner = new Scanner(System.in);
         System.out.print("Titre: ");
         String titre = scanner.nextLine();
+        String titreValider = InputValidator.validateString(titre);
         System.out.print("Auteur: ");
         String auteur = scanner.nextLine();
-        System.out.print("Date de publication (yyyy-mm-dd): ");
-        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        String auteurValider  = InputValidator.validateString(titreValider);
+        LocalDate dateDePublicationValider = InputValidator.validateDate();
         System.out.print("Nombre de pages: ");
         int nombreDePages = scanner.nextInt();
+        int nombreValide = InputValidator.validateInt(nombreDePages);
         System.out.print("Numéro: ");
         int numero = scanner.nextInt();
+        int numeroValider = InputValidator.validateInt(numero);
 
-        return new Magazine(titre, auteur, dateDePublication, nombreDePages, numero);
+        return new Magazine(titreValider, auteurValider, dateDePublicationValider, nombreValide, numeroValider);
     }
 
-    public static void modifierMagazine(int id) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Modification du magazine avec ID: " + id);
-        System.out.println("Entrez le nouveau titre : ");
-        String titre = scanner.nextLine();
-        System.out.println("Entrez le nouvel auteur : ");
-        String auteur = scanner.nextLine();
-        System.out.println("Entrez la nouvelle date de publication (format: yyyy-mm-dd) : ");
-        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
-        System.out.println("Entrez le nouveau nombre de pages : ");
-        int nombreDePages = scanner.nextInt();
-        System.out.println("Entrez le nouveau numéro : ");
-        int numero = scanner.nextInt();
-
-        Magazine magazine = new Magazine(titre, auteur, dateDePublication, nombreDePages, numero);
-
-        MagazineDAO.modifierMagazine(magazine);
-    }
 
     @Override
     public void afficherDetails() {
@@ -78,6 +64,37 @@ public class Magazine extends Document{
         MagazineDAO.supprimerMagazine(id);
         System.out.println("Le magazine avec l'ID " + id + " a été supprimé.");
     }
-  
+
+
+
+
+    public static void modifierMagazine(int id) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Modification du magazine avec ID: " + id);
+
+        System.out.print("Entrez le nouveau titre : ");
+        String titre = scanner.nextLine();
+        String titreValide = InputValidator.validateString(titre);
+
+        System.out.print("Entrez le nouvel auteur : ");
+        String auteur = scanner.nextLine();
+        String auteurValide = InputValidator.validateString(auteur);
+
+
+        LocalDate dateDePublicationValide = InputValidator.validateDate();
+
+        System.out.print("Entrez le nouveau nombre de pages : ");
+        int nombreDePages = InputValidator.validateInt(scanner.nextInt());
+
+        System.out.print("Entrez le nouveau numéro : ");
+        int numeroValide = InputValidator.validateInt(scanner.nextInt());
+
+        Magazine magazine = new Magazine(titreValide, auteurValide, dateDePublicationValide, nombreDePages, numeroValide);
+
+        MagazineDAO.modifierMagazine(magazine,id);
+    }
+
+
 
 }

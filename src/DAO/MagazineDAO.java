@@ -31,24 +31,25 @@ public class MagazineDAO {
         }
     }
 
-    public static void modifierMagazine(Magazine magazine) {
-
-        String sql = "UPDATE Magazine SET titre = ?, auteur = ?, date_de_publication = ?, nombre_de_pages = ?, numero = ? WHERE numero = ?";
+    public static void modifierMagazine(Magazine magazine, int id) {
+        String sql = "UPDATE Magazine SET titre = ?, auteur = ?, date_de_publication = ?, nombre_de_pages = ?, numero = ? WHERE id = ?";
 
         try (Connection conn = dbConnection.connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
+
             stmt.setString(1, magazine.getTitre());
             stmt.setString(2, magazine.getAuteur());
-            stmt.setDate(3, Date.valueOf(magazine.getDateDePublication()));
+            stmt.setDate(3, Date.valueOf(magazine.getDateDePublication()));  // Conversion de LocalDate en java.sql.Date
             stmt.setInt(4, magazine.getNombreDePages());
             stmt.setInt(5, magazine.getNuméro());
-            stmt.setInt(6, magazine.getNuméro());
+            stmt.setInt(6, id);
+
 
             int rowsAffected = stmt.executeUpdate();
 
             if (rowsAffected == 0) {
-                System.out.println("Aucun magazine trouvé avec le numéro spécifié pour mise à jour.");
+                System.out.println("Aucun magazine trouvé avec l'ID spécifié pour mise à jour.");
             } else {
                 System.out.println("Magazine mis à jour avec succès.");
             }
@@ -107,25 +108,7 @@ public class MagazineDAO {
     }
 
 
-    public static void modifierMagazine(int id) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Modification du magazine avec ID: " + id);
-        System.out.println("Entrez le nouveau titre : ");
-        String titre = scanner.nextLine();
-        System.out.println("Entrez le nouvel auteur : ");
-        String auteur = scanner.nextLine();
-        System.out.println("Entrez la nouvelle date de publication (format: yyyy-mm-dd) : ");
-        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
-        System.out.println("Entrez le nouveau nombre de pages : ");
-        int nombreDePages = scanner.nextInt();
-        System.out.println("Entrez le nouveau numéro : ");
-        int numero = scanner.nextInt();
-
-        Magazine magazine = new Magazine(titre, auteur, dateDePublication, nombreDePages, numero);
-
-        MagazineDAO.modifierMagazine(magazine);
-    }
 
 
 }
