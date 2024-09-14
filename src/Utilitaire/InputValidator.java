@@ -62,18 +62,21 @@ public class InputValidator {
 
 
 
-    public boolean isNumeric(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
+
+
+    public static boolean hasNum(String str){
+        return str.matches(".*[0-9].*");
     }
 
 
-
-
+    public static String validateString(String input) {
+        Scanner scanner = new Scanner(System.in);
+        while (hasNum(input)) {
+            System.out.println("La chaîne de caractères ne doit pas contenir de chiffres. Veuillez entrer une nouvelle chaîne :");
+            input = scanner.nextLine();
+        }
+        return input;
+    }
 
 
 }

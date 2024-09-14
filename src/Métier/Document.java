@@ -127,7 +127,6 @@ public abstract class Document {
         }
     }
 
-
     public static void ajouterDocument() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Quel type de document voulez-vous ajouter ?");
@@ -161,7 +160,6 @@ public abstract class Document {
         }
     }
 
-
     public static void supprimerDocument() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Quel type de document voulez-vous supprimer ?");
@@ -194,7 +192,6 @@ public abstract class Document {
         }
     }
 
-
     public static void demanderEmpruntDocument() {
         Scanner scanner = new Scanner(System.in);
 
@@ -224,7 +221,6 @@ public abstract class Document {
             System.err.println("Erreur inattendue : " + e.getMessage());
         }
     }
-
 
     public static void demanderRetourDocument() {
         Scanner scanner = new Scanner(System.in);

@@ -21,6 +21,24 @@ public class Livre extends Document {
     }
 
     public static void modifierLivre(int id) {
+        System.out.println("Saisir les informations du livre à modifier :\n");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Titre: ");
+        String titre = scanner.nextLine();
+        String titreValider = InputValidator.validateString(titre);
+        System.out.print("Auteur: ");
+        String auteur = scanner.nextLine();
+        String  auteurValider = InputValidator.validateString(auteur);
+        LocalDate  dateValider = InputValidator.validateDate();
+        System.out.print("Nombre de pages: ");
+        int nombreDePages = scanner.nextInt();
+        int nombreDePagesValider = InputValidator.validateInt(nombreDePages);
+        scanner.nextLine();
+        System.out.print("ISBN: ");
+        String isbn = scanner.nextLine();
+        String isbnValide = InputValidator.validateString(isbn);
+         Livre livre = new    Livre(titreValider, auteurValider, dateValider, nombreDePagesValider, isbnValide);
+         LivreDAO.modifierLivre(id,livre);
     }
 
     public static void supprimerLivre(int id){

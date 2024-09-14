@@ -53,7 +53,7 @@ public class TheseUniversitaire extends Document {
         LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
         System.out.println("Entrez le nouveau nombre de pages : ");
         int nombreDePages = scanner.nextInt();
-        scanner.nextLine();  // Consomme la ligne restante
+        scanner.nextLine();
         System.out.println("Entrez la nouvelle université : ");
         String universite = scanner.nextLine();
         System.out.println("Entrez le nouveau domaine : ");
