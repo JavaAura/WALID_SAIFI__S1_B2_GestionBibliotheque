@@ -1,6 +1,7 @@
 package src.Métier;
 import src.DAO.JournalScientifiqueDAO;
 import src.DAO.TheseUniversitaireDAO;
+import src.Utilitaire.InputValidator;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -24,17 +25,19 @@ public class JournalScientifique extends Document {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Titre: ");
         String titre = scanner.nextLine();
+        String titreValider = InputValidator.validateString(titre);
         System.out.print("Auteur: ");
         String auteur = scanner.nextLine();
-        System.out.print("Date de publication (yyyy-mm-dd): ");
-        LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
+        String auteurValider  = InputValidator.validateString(auteur);
+        LocalDate dateDePublication = InputValidator.validateDate();
         System.out.print("Nombre de pages: ");
         int nombreDePages = scanner.nextInt();
         scanner.nextLine();
+        int nombreDePagesValider  = InputValidator.validateInt(nombreDePages);
         System.out.print("Domaine de recherche: ");
         String domaineRecherche = scanner.nextLine();
-
-        return new JournalScientifique(titre, auteur, dateDePublication, nombreDePages, domaineRecherche);
+        String  domaineRechercheValider = InputValidator.validateString(domaineRecherche);
+        return new JournalScientifique(titreValider, auteurValider, dateDePublication, nombreDePagesValider, domaineRechercheValider);
     }
 
     public static void modifierJournalScientifique(int id) {
@@ -49,7 +52,7 @@ public class JournalScientifique extends Document {
         LocalDate dateDePublication = LocalDate.parse(scanner.nextLine());
         System.out.println("Entrez le nouveau nombre de pages : ");
         int nombreDePages = scanner.nextInt();
-        scanner.nextLine();  // Consomme la ligne restante
+        scanner.nextLine();
         System.out.println("Entrez le nouveau domaine de recherche : ");
         String domaineRecherche = scanner.nextLine();
 
