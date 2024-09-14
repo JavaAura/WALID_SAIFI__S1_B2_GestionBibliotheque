@@ -31,7 +31,7 @@ public class Console {
             System.out.println("10-  Supprimer un utilisateur");
             System.out.println("11- Afficher tous les utilisateurs");
             System.out.println("12- Quitter");
-            System.out.print("Veuillez entrer votre choix (1-11) : ");
+            System.out.print("Veuillez entrer votre choix (1-12) : ");
             Scanner scanner = new Scanner(System.in);
             int choix = scanner.nextInt();
             scanner.nextLine();
@@ -71,7 +71,6 @@ public class Console {
                             UtilisateurDAO.afficherToutUtilisateur();
                     break;
                 case 12:
-
 
 
                         System.out.println("Au revoir !");
